@@ -2,6 +2,7 @@
 <html lang="hy">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ծրարի տեղադրում</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -58,7 +59,8 @@
     }
 
     .envelope {
-      width: 200%;
+      width: 100%;
+      max-width: 400px;
       height: auto;
       display: block;
       animation: envelopeEnter 1.2s ease forwards;
@@ -77,27 +79,27 @@
 
     .card-wrapper {
       position: relative;
-      margin-top: -180px;
-      left: 50%;
-      transform-origin: bottom center;
+      margin-top: 80px;
+      width: 95%;
+      max-width: 400px;
+      transform-origin: center;
       z-index: 11;
       animation: cardEnter 1.2s ease-out forwards;
       animation-delay: 1.2s;
       opacity: 0;
-      transform: translateX(-50%) scale(0.5) translateY(50px);
-      margin-bottom: 80px;
+      transform: scale(0.9) translateY(20px);
+      margin-bottom: 40px;
     }
 
     @keyframes cardEnter {
       to {
         opacity: 1;
-        transform: translateX(-50%) scale(0.5) translateY(-45px);
+        transform: scale(1) translateY(0);
       }
     }
 
     .save-the-date-card {
-      width: 680px;
-      max-width: 100%;
+      width: 100%;
       background: white;
       border-radius: 10px;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
@@ -107,37 +109,36 @@
     }
 
     .card-header {
-      padding: 40px 30px 10px;
+      padding: 20px 15px 10px;
       text-align: center;
       background: linear-gradient(135deg, #fefefe 0%, #f9f9f9 100%);
     }
 
     .save-the-date-title {
-      font-size: 32px;
+      font-size: 20px;
       font-weight: 400;
       color: #333;
-      letter-spacing: 3px;
+      letter-spacing: 2px;
       margin-bottom: 10px;
       text-transform: uppercase;
     }
 
     .save-the-date-title .script {
       font-family: 'Allura', cursive;
-      font-size: 12px;
+      font-size: 10px;
       text-transform: none;
       letter-spacing: 1px;
       color: #666;
     }
 
     .photo-container {
-      margin: 20px auto;
-      width: 320px;
-      height: 420px;
-      padding: 20px;
+      margin: 15px auto;
+      width: 200px;
+      height: 260px;
       text-align: center;
       position: relative;
-      border-radius: 200px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      border-radius: 100px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
       overflow: hidden;
       background: rgba(255, 255, 255, 0.95);
       background-image: url('couple2.jpg');
@@ -147,27 +148,27 @@
     }
 
     .names-section {
-      padding: 40px 30px;
+      padding: 20px 15px 30px;
       text-align: center;
       background: linear-gradient(135deg, #fefefe 0%, #f9f9f9 100%);
     }
 
     .couple-names {
       font-family: 'Allura', cursive;
-      font-size: 84px;
+      font-size: 36px;
       color: #333;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       line-height: 1.2;
     }
 
     .scroll-down-indicator {
       position: absolute;
-      bottom: -100px;
+      bottom: -50px;
       left: 50%;
-      width: 55px;
-      height: 55px;
-      border-right: 4px solid #666;
-      border-bottom: 4px solid #666;
+      width: 30px;
+      height: 30px;
+      border-right: 3px solid #666;
+      border-bottom: 3px solid #666;
       animation: arrowFadeMove 2s ease-in-out infinite;
       cursor: pointer;
       user-select: none;
@@ -185,15 +186,15 @@
         opacity: 0;
       }
       100% {
-        transform: translateX(-50%) translateY(-30px) rotate(45deg);
+        transform: translateX(-50%) translateY(-20px) rotate(45deg);
         opacity: 0;
       }
     }
 
     .arch-wrapper {
-      width: 80%;
+      width: 95%;
       max-width: 400px;
-      margin: 60px auto 200px;
+      margin: 40px auto 80px;
       position: relative;
       color: #333;
       font-family: 'Dancing Script', cursive;
@@ -201,24 +202,22 @@
     }
 
     .arch-image {
-      width: 190%;
+      width: 100%;
       height: auto;
       display: block;
       position: relative;
-      left: 50%;
-      transform: translateX(-50%);
-      margin-top: -170px;
+      margin-top: 0;
       z-index: 1;
     }
 
     .arch-text {
       position: absolute;
-      top: 130px;
+      top: 20%;
       left: 50%;
-      width: 65%;
+      width: 80%;
       transform: translateX(-50%);
-      padding: 30px 20px;
-      border-radius: 20px;
+      padding: 20px 15px;
+      border-radius: 15px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -226,90 +225,90 @@
       color: #333;
       z-index: 2;
       text-align: center;
-      gap: 14px;
+      gap: 8px;
     }
 
     .arch-text h2 {
       font-family: 'poqrik', cursive;
-      font-size: 2.8rem;
+      font-size: 1.4rem;
       font-weight: 700;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
       margin: 0;
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(20px);
     }
 
     .arch-text p {
       font-family: 'Montserrat-Regular', sans-serif;
-      font-size: 17px;
+      font-size: 12px;
       font-weight: 400;
-      line-height: 1.6;
+      line-height: 1.4;
       color: rgba(51, 51, 51, 0.95);
       margin: 0;
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(20px);
     }
 
     .arch-text h3 {
       font-family: 'poqrik', cursive;
-      font-size: 36px;
+      font-size: 20px;
       font-style: italic;
       margin: 0;
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(20px);
     }
 
     .arch-text h4 {
       font-family: 'poqrik', cursive;
-      font-size: 36px;
+      font-size: 20px;
       font-weight: normal;
       margin: 0;
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(20px);
     }
 
     .arch-text .label {
       font-family: 'Montserrat-Regular', sans-serif;
-      font-size: 17px;
+      font-size: 12px;
       font-weight: 400;
-      line-height: 1.6;
+      line-height: 1.4;
       color: rgba(51, 51, 51, 0.95);
       margin: 0;
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(20px);
     }
 
     .arch-text .location {
       font-family: 'Montserrat-Regular', sans-serif;
-      font-size: 17px;
+      font-size: 12px;
       font-weight: 400;
-      line-height: 1.6;
+      line-height: 1.4;
       color: rgba(51, 51, 51, 0.95);
       margin: 0;
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(20px);
     }
 
     .arch-text .event-button {
       background: transparent;
       border: 1px solid #aaa;
-      padding: 10px 30px;
-      font-size: 16px;
-      border-radius: 30px;
+      padding: 8px 20px;
+      font-size: 12px;
+      border-radius: 20px;
       cursor: pointer;
       transition: all 0.3s ease;
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(20px);
     }
 
     .event-section {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 60px;
-      margin: 80px auto;
-      width: 90%;
-      max-width: 700px;
+      gap: 40px;
+      margin: 40px auto;
+      width: 95%;
+      max-width: 400px;
       font-family: 'Dancing Script', cursive;
       color: #333;
     }
@@ -317,48 +316,47 @@
     .event-card {
       padding: 20px;
       width: 100%;
-      max-width: 700px;
-      margin: 60px auto;
+      margin: 30px auto;
       text-align: center;
       border-radius: 12px;
-      background: rgba(255, 255, 255, 0.7);
+      background: rgba(255, 255, 255, 0.8);
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(20px);
       animation: fadeInUp 1s ease forwards;
     }
 
     .event-time {
-      font-size: 44px;
+      font-size: 28px;
       font-family: 'Allura', cursive;
     }
 
     .event-label {
-      font-size: 24px;
+      font-size: 16px;
       letter-spacing: 1px;
     }
 
     .event-place {
-      font-size: 28px;
+      font-size: 18px;
       font-style: italic;
       font-family: 'Allura', cursive;
     }
 
     .event-location {
-      font-size: 18px;
+      font-size: 14px;
       color: #666;
     }
 
     .event-button {
       background: transparent;
       border: 1px solid #aaa;
-      padding: 10px 30px;
-      font-size: 16px;
-      border-radius: 30px;
+      padding: 8px 20px;
+      font-size: 12px;
+      border-radius: 20px;
       cursor: pointer;
       transition: all 0.3s ease;
     }
@@ -372,63 +370,70 @@
       opacity: 0;
       overflow: hidden;
       transition: max-height 0.3s ease, opacity 0.3s ease;
+      width: 100%;
     }
 
     .map-container.active {
-      max-height: 400px;
+      max-height: 250px;
       opacity: 1;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 250px;
+      border: 0;
     }
 
     .announcement-container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin: 80px auto 60px;
-      width: 90%;
-      max-width: 600px;
+      margin: 40px auto 40px;
+      width: 95%;
+      max-width: 400px;
       position: relative;
     }
 
     .announcement-card-glass {
       background: rgba(255, 255, 255, 0.8);
       backdrop-filter: blur(10px);
-      border-radius: 20px;
-      padding: 30px;
+      border-radius: 15px;
+      padding: 20px;
       text-align: center;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.2);
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       z-index: 2;
     }
 
     .announcement-card-glass h4 {
       font-family: 'poqrik', cursive;
-      font-size: 28px;
+      font-size: 18px;
       color: #333;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
       font-weight: 700;
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(20px);
     }
 
     .announcement-card-glass p {
       font-family: 'Montserrat-Regular', sans-serif;
-      font-size: 16px;
+      font-size: 14px;
       color: #555;
-      line-height: 1.6;
+      line-height: 1.4;
       margin: 0;
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(20px);
     }
 
     .announcement-image {
-      width: 390%;
-      max-width: 300px;
+      width: 100%;
+      max-width: 200px;
       height: auto;
-      border-radius: 15px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(20px);
     }
 
     @keyframes fadeInUp {
@@ -438,28 +443,52 @@
       }
     }
 
+    /* Հատուկ հեռախոսի համար */
     @media (max-width: 480px) {
-      .save-the-date-card {
-        width: 100%;
-        margin: 10px;
+      .envelope {
+        width: 90%;
       }
-
-      .photo-container {
-        max-width: 250px;
-        aspect-ratio: 3.5 / 4.5;
-        clip-path: ellipse(50% 55% at 50% 50%);
+      
+      .card-wrapper {
+        margin-top: 60px;
+        width: 90%;
       }
-
-      .couple-names {
-        font-size: 42px;
+      
+      .arch-text h2 {
+        font-size: 1.2rem;
       }
-
-      .save-the-date-title {
-        font-size: 26px;
+      
+      .arch-text p {
+        font-size: 11px;
       }
-
-      .save-the-date-title .script {
-        font-size: 10px;
+      
+      .arch-text h3, .arch-text h4 {
+        font-size: 18px;
+      }
+      
+      .arch-text .event-button {
+        padding: 6px 15px;
+        font-size: 11px;
+      }
+      
+      .event-time {
+        font-size: 24px;
+      }
+      
+      .event-label {
+        font-size: 14px;
+      }
+      
+      .event-place {
+        font-size: 16px;
+      }
+      
+      .announcement-card-glass h4 {
+        font-size: 16px;
+      }
+      
+      .announcement-card-glass p {
+        font-size: 13px;
       }
     }
   </style>
@@ -499,7 +528,7 @@
 
       <button class="event-button" onclick="toggleMap('map1', this)">Ինչպես Հասնել</button>
       <div id="map1" class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d116177.97594857201!2d44.32305274625354!3d40.799584625152676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x4041bc019e3fffff%3A0x4c9e04f91597d607!2sRF4R%2B442%2C%20Abovyan%20St%2C%20Vanadzor!3m2!1d40.805277!2d44.490431799999996!5e0!3m2!1sen!2sam!4v1752501692692!5m2!1sen!2sam" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d116177.97594857201!2d44.32305274625354!3d40.799584625152676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x4041bc019e3fffff%3A0x4c9e04f91597d607!2sRF4R%2B442%2C%20Abovyan%20St%2C%20Vanadzor!3m2!1d40.805277!2d44.490431799999996!5e0!3m2!1sen!2sam!4v1752501692692!5m2!1sen!2sam" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </div>
@@ -511,7 +540,7 @@
     <p class="event-location">Teryan Street, Gyumri</p>
     <button class="event-button" onclick="toggleMap('map2', this)">Ինչպես Հասնել</button>
     <div id="map2" class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.168626692052!2d43.8516286755464!3d40.780306833431936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4041fb86ed155897%3A0x77257bb0ca2fd7b5!2sTigran%20Mets!5e0!3m2!1sen!2sam!4v1752501935771!5m2!1sen!2sam" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.168626692052!2d43.8516286755464!3d40.780306833431936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4041fb86ed155897%3A0x77257bb0ca2fd7b5!2sTigran%20Mets!5e0!3m2!1sen!2sam!4v1752501935771!5m2!1sen!2sam" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
 
@@ -534,7 +563,6 @@
       // Փակել բոլոր քարտեզները
       allMaps.forEach(map => {
         map.classList.remove('active');
-        map.style.display = 'none';
       });
 
       // Վերականգնել բոլոր կոճակների տեքստը
@@ -545,7 +573,6 @@
       // Եթե սեղմածը արդեն բացված էր՝ փակել, այլապես բացել
       if (!isActive) {
         currentMap.classList.add('active');
-        currentMap.style.display = 'block';
         button.textContent = 'ՓԱԿԵԼ ՔԱՐՏԵԶԸ';
       }
     }
@@ -553,12 +580,12 @@
     window.addEventListener('load', () => {
       const elements = document.querySelectorAll('.arch-text h2, .arch-text p, .arch-text h3, .arch-text h4, .arch-text .label, .arch-text .location, .arch-text .event-button, .event-card, .announcement-card-glass h4, .announcement-card-glass p, .announcement-image');
 
-      let delay = 500; // սկսում ենք կես վայրկյանից
-      const step = 300; // ամեն նոր էլեմենտի հայտնվելը՝ 300ms հետո
+      let delay = 500;
+      const step = 200;
 
       elements.forEach(el => {
         setTimeout(() => {
-          el.style.transition = 'opacity 1s ease, transform 1s ease';
+          el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
           el.style.opacity = '1';
           el.style.transform = 'translateY(0)';
         }, delay);
