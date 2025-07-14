@@ -210,6 +210,23 @@
       z-index: 1;
     }
 
+    /* Բարեկամներ և ընկերներ տեքստը կամարի վերին հատվածում */
+    .friends-title {
+      position: absolute;
+      top: 15%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'poqrik', cursive;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #333;
+      text-align: center;
+      z-index: 3;
+      opacity: 0;
+      transform: translateX(-50%) translateY(20px);
+    }
+
     .arch-text {
       position: absolute;
       top: 50%;
@@ -228,11 +245,12 @@
       gap: 6px;
     }
 
-    .arch-text h2 {
-      font-family: 'poqrik', cursive;
-      font-size: 1.1rem;
-      font-weight: 700;
-      letter-spacing: 1px;
+    .arch-text p {
+      font-family: 'Montserrat-Regular', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.3;
+      color: rgba(51, 51, 51, 0.95);
       margin: 0;
       opacity: 0;
       transform: translateY(20px);
@@ -444,19 +462,19 @@
         width: 90%;
       }
       
+      .friends-title {
+        top: 12%;
+        font-size: 0.9rem;
+      }
+      
       .arch-text {
         width: 65%;
         padding: 12px 8px;
         gap: 4px;
       }
       
-      .arch-text h2 {
-        font-size: 0.9rem;
-        line-height: 1.1;
-      }
-      
       .arch-text p {
-        font-size: 9px;
+        font-size: 11px;
         line-height: 1.1;
       }
       
@@ -499,19 +517,19 @@
     }
 
     @media (max-width: 390px) {
+      .friends-title {
+        top: 10%;
+        font-size: 0.8rem;
+      }
+      
       .arch-text {
         width: 60%;
         padding: 10px 6px;
         gap: 3px;
       }
       
-      .arch-text h2 {
-        font-size: 0.8rem;
-        line-height: 1.0;
-      }
-      
       .arch-text p {
-        font-size: 8px;
+        font-size: 9px;
         line-height: 1.0;
       }
       
@@ -546,19 +564,19 @@
     }
 
     @media (max-width: 360px) {
+      .friends-title {
+        top: 8%;
+        font-size: 0.75rem;
+      }
+      
       .arch-text {
         width: 55%;
         padding: 8px 4px;
         gap: 2px;
       }
       
-      .arch-text h2 {
-        font-size: 0.75rem;
-        line-height: 0.9;
-      }
-      
       .arch-text p {
-        font-size: 7px;
+        font-size: 8px;
         line-height: 0.9;
       }
       
@@ -594,19 +612,19 @@
 
     /* Հատուկ շատ փոքր էկրանների համար */
     @media (max-width: 320px) {
+      .friends-title {
+        top: 7%;
+        font-size: 0.7rem;
+      }
+      
       .arch-text {
         width: 50%;
         padding: 6px 3px;
         gap: 1px;
       }
       
-      .arch-text h2 {
-        font-size: 0.7rem;
-        line-height: 0.8;
-      }
-      
       .arch-text p {
-        font-size: 6px;
+        font-size: 7px;
         line-height: 0.8;
       }
       
@@ -651,8 +669,8 @@
 
   <div class="arch-wrapper">
     <img src="kamar.png" alt="Կամար" class="arch-image" />
+    <h2 class="friends-title">Բարեկամներ և ընկերներ</h2>
     <div class="arch-text">
-      <h2>Բարեկամներ և ընկերներ</h2>
       <p>Մեր կյանքում կարևոր իրադարձություն է սպասվում՝ մենք ընտանիք ենք կազմում և ցանկանում ենք Ձեզ հետ կիսել մեր կյանքի լուսավոր օրը։</p>
       <p>Սիրով հրավիրում ենք Ձեզ մեր հարսանիքին։</p>
 
@@ -714,7 +732,7 @@
     }
     
     window.addEventListener('load', () => {
-      const elements = document.querySelectorAll('.arch-text h2, .arch-text p, .arch-text h3, .arch-text h4, .arch-text .label, .arch-text .location, .arch-text .event-button, .event-card, .announcement-card-glass h4, .announcement-card-glass p, .announcement-image');
+      const elements = document.querySelectorAll('.friends-title, .arch-text p, .arch-text h3, .arch-text h4, .arch-text .label, .arch-text .location, .arch-text .event-button, .event-card, .announcement-card-glass h4, .announcement-card-glass p, .announcement-image');
 
       let delay = 500;
       const step = 200;
@@ -723,7 +741,7 @@
         setTimeout(() => {
           el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
           el.style.opacity = '1';
-          el.style.transform = 'translateY(0)';
+          el.style.transform = el.classList.contains('friends-title') ? 'translateX(-50%) translateY(0)' : 'translateY(0)';
         }, delay);
         delay += step;
       });
