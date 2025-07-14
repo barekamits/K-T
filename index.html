@@ -214,9 +214,9 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 75%;
+      width: 70%;
       transform: translate(-50%, -50%);
-      padding: 20px 15px;
+      padding: 15px 12px;
       border-radius: 15px;
       display: flex;
       flex-direction: column;
@@ -225,12 +225,12 @@
       color: #333;
       z-index: 2;
       text-align: center;
-      gap: 8px;
+      gap: 6px;
     }
 
     .arch-text h2 {
       font-family: 'poqrik', cursive;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: 700;
       letter-spacing: 1px;
       margin: 0;
@@ -240,7 +240,7 @@
 
     .arch-text h3 {
       font-family: 'poqrik', cursive;
-      font-size: 18px;
+      font-size: 17px;
       font-style: italic;
       margin: 0;
       opacity: 0;
@@ -249,7 +249,7 @@
 
     .arch-text h4 {
       font-family: 'poqrik', cursive;
-      font-size: 18px;
+      font-size: 17px;
       font-weight: normal;
       margin: 0;
       opacity: 0;
@@ -258,9 +258,9 @@
 
     .arch-text .label {
       font-family: 'Montserrat-Regular', sans-serif;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 400;
-      line-height: 1.4;
+      line-height: 1.3;
       color: rgba(51, 51, 51, 0.95);
       margin: 0;
       opacity: 0;
@@ -269,9 +269,9 @@
 
     .arch-text .location {
       font-family: 'Montserrat-Regular', sans-serif;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 400;
-      line-height: 1.4;
+      line-height: 1.3;
       color: rgba(51, 51, 51, 0.95);
       margin: 0;
       opacity: 0;
@@ -281,13 +281,14 @@
     .arch-text .event-button {
       background: transparent;
       border: 1px solid #aaa;
-      padding: 8px 20px;
-      font-size: 12px;
+      padding: 6px 18px;
+      font-size: 11px;
       border-radius: 20px;
       cursor: pointer;
       transition: all 0.3s ease;
       opacity: 0;
       transform: translateY(20px);
+      margin-top: 4px;
     }
 
     .event-section {
@@ -444,26 +445,32 @@
       }
       
       .arch-text {
-        width: 80%;
-        padding: 15px 10px;
-        gap: 6px;
+        width: 65%;
+        padding: 12px 8px;
+        gap: 4px;
       }
       
       .arch-text h2 {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        line-height: 1.2;
       }
       
       .arch-text p {
-        font-size: 12px;
+        font-size: 11px;
+        line-height: 1.2;
       }
       
       .arch-text h3, .arch-text h4 {
-        font-size: 16px;
+        font-size: 15px;
+      }
+      
+      .arch-text .label, .arch-text .location {
+        font-size: 11px;
       }
       
       .arch-text .event-button {
-        padding: 6px 15px;
-        font-size: 11px;
+        padding: 5px 14px;
+        font-size: 10px;
       }
       
       .event-time {
@@ -487,29 +494,34 @@
       }
     }
 
-    @media (max-width: 360px) {
+    @media (max-width: 390px) {
       .arch-text {
-        width: 85%;
-        padding: 12px 8px;
-        gap: 4px;
+        width: 60%;
+        padding: 10px 6px;
+        gap: 3px;
       }
       
       .arch-text h2 {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        line-height: 1.1;
       }
       
       .arch-text p {
-        font-size: 11px;
-        line-height: 1.3;
+        font-size: 10px;
+        line-height: 1.1;
       }
       
       .arch-text h3, .arch-text h4 {
-        font-size: 15px;
+        font-size: 14px;
+      }
+      
+      .arch-text .label, .arch-text .location {
+        font-size: 10px;
       }
       
       .arch-text .event-button {
-        padding: 5px 12px;
-        font-size: 10px;
+        padding: 4px 12px;
+        font-size: 9px;
       }
       
       .event-time {
@@ -522,6 +534,81 @@
       
       .event-place {
         font-size: 15px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .arch-text {
+        width: 55%;
+        padding: 8px 4px;
+        gap: 2px;
+      }
+      
+      .arch-text h2 {
+        font-size: 0.8rem;
+        line-height: 1.0;
+      }
+      
+      .arch-text p {
+        font-size: 9px;
+        line-height: 1.0;
+      }
+      
+      .arch-text h3, .arch-text h4 {
+        font-size: 13px;
+      }
+      
+      .arch-text .label, .arch-text .location {
+        font-size: 9px;
+      }
+      
+      .arch-text .event-button {
+        padding: 3px 10px;
+        font-size: 8px;
+      }
+      
+      .event-time {
+        font-size: 20px;
+      }
+      
+      .event-label {
+        font-size: 12px;
+      }
+      
+      .event-place {
+        font-size: 14px;
+      }
+    }
+
+    /* Հատուկ շատ փոքր էկրանների համար */
+    @media (max-width: 320px) {
+      .arch-text {
+        width: 50%;
+        padding: 6px 3px;
+        gap: 1px;
+      }
+      
+      .arch-text h2 {
+        font-size: 0.75rem;
+        line-height: 0.9;
+      }
+      
+      .arch-text p {
+        font-size: 8px;
+        line-height: 0.9;
+      }
+      
+      .arch-text h3, .arch-text h4 {
+        font-size: 12px;
+      }
+      
+      .arch-text .label, .arch-text .location {
+        font-size: 8px;
+      }
+      
+      .arch-text .event-button {
+        padding: 2px 8px;
+        font-size: 7px;
       }
     }
   </style>
