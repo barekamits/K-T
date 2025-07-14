@@ -199,6 +199,7 @@
       color: #333;
       font-family: 'Dancing Script', cursive;
       text-align: center;
+      padding: 20px 0;
     }
 
     .arch-image {
@@ -213,27 +214,29 @@
     /* Բարեկամներ և ընկերներ տեքստը կամարի վերին հատվածում */
     .friends-title {
       position: absolute;
-      top: 15%;
+      top: 25%;
       left: 50%;
       transform: translateX(-50%);
       font-family: 'poqrik', cursive;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: 700;
       letter-spacing: 1px;
       color: #333;
       text-align: center;
       z-index: 3;
       opacity: 0;
-      transform: translateX(-50%) translateY(20px);
+      max-width: 80%;
+      line-height: 1.2;
+      padding: 0 10px;
     }
 
     .arch-text {
       position: absolute;
-      top: 50%;
+      top: 55%;
       left: 50%;
-      width: 70%;
+      width: 75%;
       transform: translate(-50%, -50%);
-      padding: 15px 12px;
+      padding: 20px 15px;
       border-radius: 15px;
       display: flex;
       flex-direction: column;
@@ -249,11 +252,12 @@
       font-family: 'Montserrat-Regular', sans-serif;
       font-size: 14px;
       font-weight: 400;
-      line-height: 1.3;
+      line-height: 1.4;
       color: rgba(51, 51, 51, 0.95);
       margin: 0;
       opacity: 0;
       transform: translateY(20px);
+      word-break: break-word;
     }
 
     .arch-text h3 {
@@ -450,81 +454,8 @@
         transform: translateY(0);
       }
     }
-    /* Ավելացրու սա style-ի մեջ՝ media queries-ի վերևում կամ arch-wrapper-ի հատվածում */
 
-.arch-wrapper {
-  padding: 20px 0; /* վերևից-ներքևից հեռավորություն */
-}
-
-/* Բարեկամներ և ընկերներ */
-.friends-title {
-  top: 12%; /* ավելի ցածր դիրք */
-  font-size: 1.3rem;
-  max-width: 80%;
-  line-height: 1.2;
-  padding: 0 10px;
-}
-
-/* Կամարի մեջի տեքստերի բլոկ */
-.arch-text {
-  width: 80%; /* ավելի լայն տարածք՝ տեքստը չսեղմելու համար */
-  padding: 20px 15px;
-}
-
-/* Տեքստերը */
-.arch-text p,
-.arch-text h3,
-.arch-text h4,
-.arch-text .label,
-.arch-text .location {
-  word-break: break-word;
-  text-align: center;
-  line-height: 1.4;
-}
-
-/* Մոբայլի վրա էլ ավելի բացում ենք տեքստի շնչառությունը */
-@media (max-width: 480px) {
-  .friends-title {
-    font-size: 1.1rem;
-    top: 14%;
-  }
-
-  .arch-text {
-    width: 85%;
-    padding: 16px 10px;
-  }
-
-  .arch-text p {
-    font-size: 12px;
-  }
-
-  .arch-text h3, .arch-text h4 {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 360px) {
-  .friends-title {
-    font-size: 1rem;
-    top: 13%;
-  }
-
-  .arch-text {
-    width: 90%;
-    padding: 14px 8px;
-  }
-
-  .arch-text p {
-    font-size: 11px;
-  }
-
-  .arch-text h3, .arch-text h4 {
-    font-size: 13px;
-  }
-}
-
-
-    /* Հատուկ հեռախոսի համար */
+    /* Mobile responsive adjustments */
     @media (max-width: 480px) {
       .envelope {
         width: 90%;
@@ -536,32 +467,33 @@
       }
       
       .friends-title {
-        top: 12%;
-        font-size: 0.9rem;
+        top: 22%;
+        font-size: 1.1rem;
       }
       
       .arch-text {
-        width: 65%;
-        padding: 12px 8px;
-        gap: 4px;
+        width: 72%;
+        top: 58%;
+        padding: 15px 12px;
+        gap: 5px;
       }
       
       .arch-text p {
-        font-size: 11px;
-        line-height: 1.1;
+        font-size: 12px;
+        line-height: 1.3;
       }
       
       .arch-text h3, .arch-text h4 {
-        font-size: 13px;
+        font-size: 15px;
       }
       
       .arch-text .label, .arch-text .location {
-        font-size: 9px;
+        font-size: 11px;
       }
       
       .arch-text .event-button {
-        padding: 4px 12px;
-        font-size: 8px;
+        padding: 5px 15px;
+        font-size: 10px;
       }
       
       .event-time {
@@ -591,32 +523,33 @@
 
     @media (max-width: 390px) {
       .friends-title {
-        top: 10%;
-        font-size: 0.8rem;
+        top: 20%;
+        font-size: 1rem;
       }
       
       .arch-text {
-        width: 60%;
-        padding: 10px 6px;
-        gap: 3px;
+        width: 70%;
+        top: 60%;
+        padding: 12px 10px;
+        gap: 4px;
       }
       
       .arch-text p {
-        font-size: 9px;
-        line-height: 1.0;
+        font-size: 11px;
+        line-height: 1.2;
       }
       
       .arch-text h3, .arch-text h4 {
-        font-size: 12px;
+        font-size: 14px;
       }
       
       .arch-text .label, .arch-text .location {
-        font-size: 8px;
+        font-size: 10px;
       }
       
       .arch-text .event-button {
-        padding: 3px 10px;
-        font-size: 7px;
+        padding: 4px 12px;
+        font-size: 9px;
       }
       
       .event-time {
@@ -638,32 +571,33 @@
 
     @media (max-width: 360px) {
       .friends-title {
-        top: 8%;
-        font-size: 0.75rem;
+        top: 18%;
+        font-size: 0.9rem;
       }
       
       .arch-text {
-        width: 55%;
-        padding: 8px 4px;
-        gap: 2px;
+        width: 68%;
+        top: 62%;
+        padding: 10px 8px;
+        gap: 3px;
       }
       
       .arch-text p {
-        font-size: 8px;
-        line-height: 0.9;
+        font-size: 10px;
+        line-height: 1.1;
       }
       
       .arch-text h3, .arch-text h4 {
-        font-size: 11px;
+        font-size: 13px;
       }
       
       .arch-text .label, .arch-text .location {
-        font-size: 7px;
+        font-size: 9px;
       }
       
       .arch-text .event-button {
-        padding: 2px 8px;
-        font-size: 6px;
+        padding: 3px 10px;
+        font-size: 8px;
       }
       
       .event-time {
@@ -683,35 +617,36 @@
       }
     }
 
-    /* Հատուկ շատ փոքր էկրանների համար */
+    /* Extra small screens */
     @media (max-width: 320px) {
       .friends-title {
-        top: 7%;
-        font-size: 0.7rem;
+        top: 16%;
+        font-size: 0.8rem;
       }
       
       .arch-text {
-        width: 50%;
-        padding: 6px 3px;
-        gap: 1px;
+        width: 65%;
+        top: 64%;
+        padding: 8px 6px;
+        gap: 2px;
       }
       
       .arch-text p {
-        font-size: 7px;
-        line-height: 0.8;
+        font-size: 9px;
+        line-height: 1.0;
       }
       
       .arch-text h3, .arch-text h4 {
-        font-size: 10px;
+        font-size: 12px;
       }
       
       .arch-text .label, .arch-text .location {
-        font-size: 6px;
+        font-size: 8px;
       }
       
       .arch-text .event-button {
-        padding: 2px 6px;
-        font-size: 5px;
+        padding: 2px 8px;
+        font-size: 7px;
       }
       
       .announcement-image {
