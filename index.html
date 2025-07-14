@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ծրարի տեղադրում</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    @font-face {
+      font-family: 'Poqrik';
+      src: url('poqrik.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Montserrat-Regular';
+      src: url('Montserratarm-Regular.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Heghnar';
+      src: url('HEGHNAR.TTF') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('background.png') no-repeat center center;
+      background-size: cover;
+      background-attachment: fixed;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      font-family: 'Dancing Script', cursive;
+      scroll-behavior: smooth;
+    }
+
+    .envelope-container {
+      position: absolute;
+      top: 5px;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .envelope {
+      width: 200%;
+      height: auto;
+      display: block;
+      animation: envelopeEnter 1.2s ease forwards;
+    }
+
+    @keyframes envelopeEnter {
+      0% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .card-wrapper {
+      position: relative;
+      margin-top: -180px;
+      left: 50%;
+      transform-origin: bottom center;
+      z-index: 11;
+      animation: cardEnter 1.2s ease-out forwards;
+      animation-delay: 1.2s;
+      opacity: 0;
+      transform: translateX(-50%) scale(0.5) translateY(50px);
+      margin-bottom: 80px;
+    }
+
+    @keyframes cardEnter {
+      to {
+        opacity: 1;
+        transform: translateX(-50%) scale(0.5) translateY(-45px);
+      }
+    }
+
+    .save-the-date-card {
+      width: 680px;
+      max-width: 100%;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      position: relative;
+      padding-bottom: 0;
+    }
+
+    .card-header {
+      padding: 40px 30px 10px;
+      text-align: center;
+      background: linear-gradient(135deg, #fefefe 0%, #f9f9f9 100%);
+    }
+
+    .save-the-date-title {
+      font-size: 32px;
+      font-weight: 400;
+      color: #333;
+      letter-spacing: 3px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .save-the-date-title .script {
+      font-family: 'Allura', cursive;
+      font-size: 12px;
+      text-transform: none;
+      letter-spacing: 1px;
+      color: #666;
+    }
+
+    .photo-container {
+      margin: 20px auto;
+      width: 320px;
+      height: 420px;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      border-radius: 200px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.95);
+      background-image: url('couple2.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .names-section {
+      padding: 40px 30px;
+      text-align: center;
+      background: linear-gradient(135deg, #fefefe 0%, #f9f9f9 100%);
+    }
+
+    .couple-names {
+      font-family: 'Allura', cursive;
+      font-size: 84px;
+      color: #333;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .scroll-down-indicator {
+      position: absolute;
+      bottom: -100px;
+      left: 50%;
+      width: 55px;
+      height: 55px;
+      border-right: 4px solid #666;
+      border-bottom: 4px solid #666;
+      animation: arrowFadeMove 2s ease-in-out infinite;
+      cursor: pointer;
+      user-select: none;
+      z-index: 0;
+      transform-origin: center;
+      transform: translateX(-50%) rotate(45deg);
+    }
+
+    @keyframes arrowFadeMove {
+      0% {
+        transform: translateX(-50%) translateY(0) rotate(45deg);
+        opacity: 1;
+      }
+      80% {
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(-50%) translateY(-30px) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    .arch-wrapper {
+      width: 80%;
+      max-width: 400px;
+      margin: 60px auto 200px;
+      position: relative;
+      color: #333;
+      font-family: 'Dancing Script', cursive;
+      text-align: center;
+    }
+
+    .arch-image {
+      width: 190%;
+      height: auto;
+      display: block;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: -170px;
+      z-index: 1;
+    }
+
+    .arch-text {
+      position: absolute;
+      top: 130px;
+      left: 50%;
+      width: 65%;
+      transform: translateX(-50%);
+      padding: 30px 20px;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #333;
+      z-index: 2;
+      text-align: center;
+      gap: 14px;
+    }
+
+    .arch-text h2 {
+      font-family: 'poqrik', cursive;
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin: 0;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .arch-text p {
+      font-family: 'Montserrat-Regular', sans-serif;
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: rgba(51, 51, 51, 0.95);
+      margin: 0;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .arch-text h3 {
+      font-family: 'poqrik', cursive;
+      font-size: 36px;
+      font-style: italic;
+      margin: 0;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .arch-text h4 {
+      font-family: 'poqrik', cursive;
+      font-size: 36px;
+      font-weight: normal;
+      margin: 0;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .arch-text .label {
+      font-family: 'Montserrat-Regular', sans-serif;
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: rgba(51, 51, 51, 0.95);
+      margin: 0;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .arch-text .location {
+      font-family: 'Montserrat-Regular', sans-serif;
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: rgba(51, 51, 51, 0.95);
+      margin: 0;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .arch-text .event-button {
+      background: transparent;
+      border: 1px solid #aaa;
+      padding: 10px 30px;
+      font-size: 16px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .event-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 60px;
+      margin: 80px auto;
+      width: 90%;
+      max-width: 700px;
+      font-family: 'Dancing Script', cursive;
+      color: #333;
+    }
+
+    .event-card {
+      padding: 20px;
+      width: 100%;
+      max-width: 700px;
+      margin: 60px auto;
+      text-align: center;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.7);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .event-time {
+      font-size: 44px;
+      font-family: 'Allura', cursive;
+    }
+
+    .event-label {
+      font-size: 24px;
+      letter-spacing: 1px;
+    }
+
+    .event-place {
+      font-size: 28px;
+      font-style: italic;
+      font-family: 'Allura', cursive;
+    }
+
+    .event-location {
+      font-size: 18px;
+      color: #666;
+    }
+
+    .event-button {
+      background: transparent;
+      border: 1px solid #aaa;
+      padding: 10px 30px;
+      font-size: 16px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .event-button:hover {
+      background: #f3f3f3;
+    }
+
+    .map-container {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, opacity 0.3s ease;
+    }
+
+    .map-container.active {
+      max-height: 400px;
+      opacity: 1;
+    }
+
+    .announcement-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 80px auto 60px;
+      width: 90%;
+      max-width: 600px;
+      position: relative;
+    }
+
+    .announcement-card-glass {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      margin-bottom: 30px;
+      z-index: 2;
+    }
+
+    .announcement-card-glass h4 {
+      font-family: 'poqrik', cursive;
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 15px;
+      font-weight: 700;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .announcement-card-glass p {
+      font-family: 'Montserrat-Regular', sans-serif;
+      font-size: 16px;
+      color: #555;
+      line-height: 1.6;
+      margin: 0;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .announcement-image {
+      width: 390%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .save-the-date-card {
+        width: 100%;
+        margin: 10px;
+      }
+
+      .photo-container {
+        max-width: 250px;
+        aspect-ratio: 3.5 / 4.5;
+        clip-path: ellipse(50% 55% at 50% 50%);
+      }
+
+      .couple-names {
+        font-size: 42px;
+      }
+
+      .save-the-date-title {
+        font-size: 26px;
+      }
+
+      .save-the-date-title .script {
+        font-size: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="envelope-container">
+    <img src="image-removebg-preview.png" alt="Ծրար" class="envelope" />
+  </div>
+
+  <div class="card-wrapper">
+    <div class="save-the-date-card">
+      <div class="card-header">
+        <h1 class="save-the-date-title">
+          SAVE <span class="script">the</span> DATE
+        </h1>
+      </div>
+      <div class="photo-container"></div>
+      <div class="names-section">
+        <h2 class="couple-names">Tigran & Kalina</h2>
+      </div>
+    </div>
+    <div class="scroll-down-indicator"></div>
+  </div>
+
+  <div class="arch-wrapper">
+    <img src="kamar.png" alt="Կամար" class="arch-image" />
+    <div class="arch-text">
+      <h2>Բարեկամներ և ընկերներ</h2>
+      <p>Մեր կյանքում կարևոր իրադարձություն է սպասվում՝ մենք ընտանիք ենք կազմում և ցանկանում ենք Ձեզ հետ կիսել մեր կյանքի լուսավոր օրը։</p>
+      <p>Սիրով հրավիրում ենք Ձեզ մեր հարսանիքին։</p>
+
+      <h3>10 Օգոստոսի 2025</h3>
+      <h4 class="time">12:30</h4>
+      <p class="label">Պսակադրություն</p>
+      <h4 class="place">Սբ. Գրիգոր Նարեկացի</h4>
+      <p class="location">Վանաձոր</p>
+
+      <button class="event-button" onclick="toggleMap('map1', this)">Ինչպես Հասնել</button>
+      <div id="map1" class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d116177.97594857201!2d44.32305274625354!3d40.799584625152676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x4041bc019e3fffff%3A0x4c9e04f91597d607!2sRF4R%2B442%2C%20Abovyan%20St%2C%20Vanadzor!3m2!1d40.805277!2d44.490431799999996!5e0!3m2!1sen!2sam!4v1752501692692!5m2!1sen!2sam" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="event-card">
+    <h2 class="event-time">16:30</h2>
+    <p class="event-label">Հարսանյաց հանդիսություն</p>
+    <h3 class="event-place">Tigran Mets Ռեստորանային համալիր</h3>
+    <p class="event-location">Teryan Street, Gyumri</p>
+    <button class="event-button" onclick="toggleMap('map2', this)">Ինչպես Հասնել</button>
+    <div id="map2" class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.168626692052!2d43.8516286755464!3d40.780306833431936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4041fb86ed155897%3A0x77257bb0ca2fd7b5!2sTigran%20Mets!5e0!3m2!1sen!2sam!4v1752501935771!5m2!1sen!2sam" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+
+  <div class="announcement-container">
+    <div class="announcement-card-glass">
+      <h4>Հայտարարություն</h4>
+      <p>Խնդրում ենք Ձեզ հետ վերցնել հարմարավետ կոշիկներ,<br> որպեսզի լիարժեք վայելեք օրը։</p>
+    </div>
+    <img class="announcement-image" src="last.png" alt="կոշիկների խորհուրդ">
+  </div>
+
+  <script>
+    function toggleMap(id, button) {
+      const currentMap = document.getElementById(id);
+      const allMaps = document.querySelectorAll('.map-container');
+      const allButtons = document.querySelectorAll('.event-button');
+
+      const isActive = currentMap.classList.contains('active');
+
+      // Փակել բոլոր քարտեզները
+      allMaps.forEach(map => {
+        map.classList.remove('active');
+        map.style.display = 'none';
+      });
+
+      // Վերականգնել բոլոր կոճակների տեքստը
+      allButtons.forEach(btn => {
+        btn.textContent = 'Ինչպես Հասնել';
+      });
+
+      // Եթե սեղմածը արդեն բացված էր՝ փակել, այլապես բացել
+      if (!isActive) {
+        currentMap.classList.add('active');
+        currentMap.style.display = 'block';
+        button.textContent = 'ՓԱԿԵԼ ՔԱՐՏԵԶԸ';
+      }
+    }
+    
+    window.addEventListener('load', () => {
+      const elements = document.querySelectorAll('.arch-text h2, .arch-text p, .arch-text h3, .arch-text h4, .arch-text .label, .arch-text .location, .arch-text .event-button, .event-card, .announcement-card-glass h4, .announcement-card-glass p, .announcement-image');
+
+      let delay = 500; // սկսում ենք կես վայրկյանից
+      const step = 300; // ամեն նոր էլեմենտի հայտնվելը՝ 300ms հետո
+
+      elements.forEach(el => {
+        setTimeout(() => {
+          el.style.transition = 'opacity 1s ease, transform 1s ease';
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }, delay);
+        delay += step;
+      });
+    });
+  </script>
+
+</body>
+</html>
