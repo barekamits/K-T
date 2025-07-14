@@ -210,54 +210,55 @@
       z-index: 1;
     }
 
-.arch-text {
-  position: absolute;
-  top: 15%;           /* ← Նոր */
-  left: 50%;
-  width: 85%;         /* ← Նոր */
-  transform: translateX(-50%);
-  padding: 15px 10px; /* ← Նոր */
-  border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #333;
-  z-index: 2;
-  text-align: center;
-  gap: 6px;           /* ← Նոր */
-}
-   .arch-text h2 {
-  font-family: 'poqrik', cursive;
-  font-size: 1.1rem;  /* ← Նոր */
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin: 0;
-  opacity: 0;
-  transform: translateY(20px);
-}
+    .arch-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 75%;
+      transform: translate(-50%, -50%);
+      padding: 20px 15px;
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #333;
+      z-index: 2;
+      text-align: center;
+      gap: 8px;
+    }
 
-.arch-text h3 {
-  font-family: 'poqrik', cursive;
-  font-size: 16px;    /* ← Նոր */
-  font-style: italic;
-  margin: 0;
-  opacity: 0;
-  transform: translateY(20px);
-}
+    .arch-text h2 {
+      font-family: 'poqrik', cursive;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin: 0;
+      opacity: 0;
+      transform: translateY(20px);
+    }
 
-.arch-text h4 {
-  font-family: 'poqrik', cursive;
-  font-size: 16px;    /* ← Նոր */
-  font-weight: normal;
-  margin: 0;
-  opacity: 0;
-  transform: translateY(20px);
-}
+    .arch-text h3 {
+      font-family: 'poqrik', cursive;
+      font-size: 18px;
+      font-style: italic;
+      margin: 0;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .arch-text h4 {
+      font-family: 'poqrik', cursive;
+      font-size: 18px;
+      font-weight: normal;
+      margin: 0;
+      opacity: 0;
+      transform: translateY(20px);
+    }
 
     .arch-text .label {
       font-family: 'Montserrat-Regular', sans-serif;
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 400;
       line-height: 1.4;
       color: rgba(51, 51, 51, 0.95);
@@ -268,7 +269,7 @@
 
     .arch-text .location {
       font-family: 'Montserrat-Regular', sans-serif;
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 400;
       line-height: 1.4;
       color: rgba(51, 51, 51, 0.95);
@@ -432,98 +433,97 @@
     }
 
     /* Հատուկ հեռախոսի համար */
- @media (max-width: 480px) {
-  .envelope {
-    width: 90%;
-  }
-  
-  .card-wrapper {
-    margin-top: 60px;
-    width: 90%;
-  }
-  
-  .arch-text {           /* ← Նոր հավելված */
-    top: 12%;
-    width: 90%;
-    padding: 10px 8px;
-    gap: 4px;
-  }
-  
-  .arch-text h2 {
-    font-size: 1rem;     /* ← Նոր */
-  }
-  
-  .arch-text p {
-    font-size: 10px;     /* ← Նոր */
-  }
-  
-  .arch-text h3, .arch-text h4 {
-    font-size: 14px;     /* ← Նոր */
-  }
-  
-  .arch-text .event-button {
-    padding: 5px 12px;   /* ← Նոր */
-    font-size: 10px;     /* ← Նոր */
-  }
-  
-  .event-time {
-    font-size: 24px;
-  }
-  
-  .event-label {
-    font-size: 14px;
-  }
-  
-  .event-place {
-    font-size: 16px;
-  }
-  
-  .announcement-card-glass h4 {
-    font-size: 16px;
-  }
-  
-  .announcement-card-glass p {
-    font-size: 13px;
-  }
-}
+    @media (max-width: 480px) {
+      .envelope {
+        width: 90%;
+      }
+      
+      .card-wrapper {
+        margin-top: 60px;
+        width: 90%;
+      }
+      
+      .arch-text {
+        width: 80%;
+        padding: 15px 10px;
+        gap: 6px;
+      }
+      
+      .arch-text h2 {
+        font-size: 1rem;
+      }
+      
+      .arch-text p {
+        font-size: 12px;
+      }
+      
+      .arch-text h3, .arch-text h4 {
+        font-size: 16px;
+      }
+      
+      .arch-text .event-button {
+        padding: 6px 15px;
+        font-size: 11px;
+      }
+      
+      .event-time {
+        font-size: 24px;
+      }
+      
+      .event-label {
+        font-size: 14px;
+      }
+      
+      .event-place {
+        font-size: 16px;
+      }
+      
+      .announcement-card-glass h4 {
+        font-size: 16px;
+      }
+      
+      .announcement-card-glass p {
+        font-size: 13px;
+      }
+    }
+
     @media (max-width: 360px) {
-  .arch-text {
-    top: 10%;
-    width: 92%;
-    padding: 8px 6px;
-    gap: 3px;
-  }
-  
-  .arch-text h2 {
-    font-size: 0.9rem;
-  }
-  
-  .arch-text p {
-    font-size: 9px;
-    line-height: 1.2;
-  }
-  
-  .arch-text h3, .arch-text h4 {
-    font-size: 13px;
-  }
-  
-  .arch-text .event-button {
-    padding: 4px 10px;
-    font-size: 9px;
-  }
-  
-  .event-time {
-    font-size: 22px;
-  }
-  
-  .event-label {
-    font-size: 13px;
-  }
-  
-  .event-place {
-    font-size: 15px;
-  }
-}
+      .arch-text {
+        width: 85%;
+        padding: 12px 8px;
+        gap: 4px;
+      }
+      
+      .arch-text h2 {
+        font-size: 0.9rem;
+      }
+      
+      .arch-text p {
+        font-size: 11px;
+        line-height: 1.3;
+      }
+      
+      .arch-text h3, .arch-text h4 {
+        font-size: 15px;
+      }
+      
+      .arch-text .event-button {
+        padding: 5px 12px;
+        font-size: 10px;
+      }
+      
+      .event-time {
+        font-size: 22px;
+      }
+      
+      .event-label {
+        font-size: 13px;
+      }
+      
+      .event-place {
+        font-size: 15px;
+      }
+    }
   </style>
 </head>
 <body>
