@@ -450,6 +450,79 @@
         transform: translateY(0);
       }
     }
+    /* Ավելացրու սա style-ի մեջ՝ media queries-ի վերևում կամ arch-wrapper-ի հատվածում */
+
+.arch-wrapper {
+  padding: 20px 0; /* վերևից-ներքևից հեռավորություն */
+}
+
+/* Բարեկամներ և ընկերներ */
+.friends-title {
+  top: 12%; /* ավելի ցածր դիրք */
+  font-size: 1.3rem;
+  max-width: 80%;
+  line-height: 1.2;
+  padding: 0 10px;
+}
+
+/* Կամարի մեջի տեքստերի բլոկ */
+.arch-text {
+  width: 80%; /* ավելի լայն տարածք՝ տեքստը չսեղմելու համար */
+  padding: 20px 15px;
+}
+
+/* Տեքստերը */
+.arch-text p,
+.arch-text h3,
+.arch-text h4,
+.arch-text .label,
+.arch-text .location {
+  word-break: break-word;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Մոբայլի վրա էլ ավելի բացում ենք տեքստի շնչառությունը */
+@media (max-width: 480px) {
+  .friends-title {
+    font-size: 1.1rem;
+    top: 14%;
+  }
+
+  .arch-text {
+    width: 85%;
+    padding: 16px 10px;
+  }
+
+  .arch-text p {
+    font-size: 12px;
+  }
+
+  .arch-text h3, .arch-text h4 {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  .friends-title {
+    font-size: 1rem;
+    top: 13%;
+  }
+
+  .arch-text {
+    width: 90%;
+    padding: 14px 8px;
+  }
+
+  .arch-text p {
+    font-size: 11px;
+  }
+
+  .arch-text h3, .arch-text h4 {
+    font-size: 13px;
+  }
+}
+
 
     /* Հատուկ հեռախոսի համար */
     @media (max-width: 480px) {
