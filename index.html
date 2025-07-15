@@ -18,12 +18,19 @@
       font-weight: normal;
       font-style: normal;
     }
+    @font-face {
+      font-family: 'Heghnar';
+      src: url('HEGHNAR.TTF') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
     :root {
       --primary: #fff;
       --bg-envelope-color: #ffffff;
       --envelope-tab: #f0f0f0;
       --envelope-cover: #fdfdfd;
       --shadow-color: rgba(0, 0, 0, 0.2);
+      --section-spacing: 60px; /* Համաչափ բաժանարար */
     }
 
     body {
@@ -49,7 +56,7 @@
     }
 
     .envelope-wrapper {
-      margin-top: 80px;
+      margin-top: 60px; /* Կրճատվեց 80px-ից */
       background: var(--bg-envelope-color);
       box-shadow: 0 0 40px var(--shadow-color);
       position: relative;
@@ -252,15 +259,10 @@
 
     .countdown-section {
       text-align: center;
-      margin-top: 150px;
+      margin-top: calc(var(--section-spacing) * 2.5); /* 150px */
       opacity: 0;
       transform: translateY(40px);
       transition: all 1.5s ease;
-    }
-
-    .flap ~ .countdown-section {
-      opacity: 1;
-      transform: translateY(0);
     }
 
     .countdown-section h2 {
@@ -290,48 +292,39 @@
       color: #666;
       margin-top: 5px;
     }
+
     .invitation-text {
-      margin-top: 60px;
+      margin-top: var(--section-spacing);
       text-align: center;
       max-width: 600px;
       padding: 30px 25px;
-      background: rgba(255, 255, 255, 0.7); /* թափանցիկ սպիտակ */
+      background: rgba(255, 255, 255, 0.7);
       border-radius: 20px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
       color: #333;
       font-family: 'Boloragir-Italic';
       font-size: 20px;
       line-height: 1.6;
-      backdrop-filter: blur(6px); /* հայելու ֆոն էֆֆեկտ */
+      backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
       opacity: 0;
       transform: translateY(30px);
-      animation: fadeSlideUp 2s ease forwards;
-      animation-delay: 3.2s;
+      transition: all 1.5s ease;
     }
 
-    @keyframes fadeSlideUp {
-      0% {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
     .invitation-text h2 {
       font-family: 'Boloragir-Italic';      
       font-size: 32px;
       margin-bottom: 20px;
       color: #444;
     }
+
     .schedule-card {
-      margin-top: 80px;
+      margin-top: var(--section-spacing);
       text-align: center;
       max-width: 600px;
       padding: 40px 30px;
-      background: transparent; /* ֆոնը հանված է */
+      background: transparent;
       border-radius: 20px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.08);
       backdrop-filter: blur(6px);
@@ -342,8 +335,7 @@
       line-height: 1.6;
       opacity: 0;
       transform: translateY(50px);
-      animation: fadeSlideUp 2s ease forwards;
-      animation-delay: 4.5s;
+      transition: all 1.5s ease;
     }
 
     .schedule-title {
@@ -356,11 +348,12 @@
       margin-bottom: 30px;
       position: relative;
     }
+
     .event-icon {
-      width: 50px;       /* կամ 60px ըստ ճաշակի */
+      width: 50px;
       height: auto;
       display: block;
-      margin: 0 auto 10px; /* կենտրոնացնի և ներքևում բացվածք տա տեքստից առաջ */
+      margin: 0 auto 10px;
       opacity: 0.9;
     }
 
@@ -392,8 +385,9 @@
     .map-button:hover {
       background-color: #666;
     }
+
     .announcement-card {
-      margin-top: 60px;
+      margin-top: var(--section-spacing);
       text-align: center;
       max-width: 600px;
       padding: 30px 25px;
@@ -408,8 +402,7 @@
       line-height: 1.6;
       opacity: 0;
       transform: translateY(50px);
-      animation: fadeSlideUp 2s ease forwards;
-      animation-delay: 5.2s;
+      transition: all 1.5s ease;
     }
 
     .announcement-title {
@@ -424,14 +417,14 @@
       color: #333;
       font-family: 'Boloragir-Italic';
     }
+
     .couple-photo {
-      margin-top: 60px;
-      margin-bottom: 100px;
+      margin-top: var(--section-spacing);
+      margin-bottom: 40px; /* Կրճատվեց 100px-ից */
       text-align: center;
       opacity: 0;
       transform: translateY(40px);
-      animation: fadeSlideUp 2s ease forwards;
-      animation-delay: 5.8s;
+      transition: all 1.5s ease;
     }
 
     .couple-photo img {
@@ -441,10 +434,125 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
 
+    .calendar-wrapper {
+      max-width: 360px;
+      margin: var(--section-spacing) auto 40px;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      font-family: 'Montserratarm-Medium', sans-serif;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      text-align: center;
+    }
+
+    .calendar-title {
+      font-family: 'Heghnar';
+      font-size: 32px;
+      color: #3B3B28;
+      margin-bottom: 10px;
+    }
+
+    .calendar-month {
+      font-family:'Boloragir-Italic';
+      font-size: 20px;
+      color: #3B3B28;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .calendar-days, .calendar-dates {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+    }
+
+    .calendar-days div {
+      font-weight: bold;
+      color: #3B3B28;
+      font-size: 14px;
+    }
+
+    .calendar-dates .day, .calendar-dates .empty {
+      padding: 10px 0;
+      background-color: transparent;
+      color: #3B3B28;
+      font-size: 14px;
+    }
+
+    .calendar-dates .highlight {
+      background-color: #3B3B28;
+      color: white;
+      font-weight: bold;
+    }
+
+    .heart-day {
+      position: relative;
+      width: 36px;
+      height: 33px;
+      margin: auto;
+      padding: 2px;
+      box-sizing: content-box;
+    }
+
+    .heart-outline {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .heart-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -55%);
+      font-size: 14px;
+      color: #3B3B28;
+      font-weight: bold;
+      font-family: 'Montserratarm-Medium', sans-serif;
+      pointer-events: none;
+    }
+
+    /* Թաքցնել ամբողջ կոնտենտը սկզբում */
+    body.no-show .container > *:not(.envelope-wrapper) {
+      display: none;
+    }
+
+    /* Երևացնել կոնտենտը ծրարը բացելուց հետո */
+    body.opened .countdown-section,
+    body.opened .invitation-text,
+    body.opened .schedule-card,
+    body.opened .announcement-card,
+    body.opened .couple-photo {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Համաչափ երևալու անիմացիաների ժամկետներ */
+    body.opened .countdown-section {
+      transition-delay: 1s;
+    }
+
+    body.opened .invitation-text {
+      transition-delay: 1.3s;
+    }
+
+    body.opened .schedule-card {
+      transition-delay: 1.6s;
+    }
+
+    body.opened .announcement-card {
+      transition-delay: 1.9s;
+    }
+
+    body.opened .couple-photo {
+      transition-delay: 2.2s;
+    }
 
   </style>
 </head>
-<body>
+<body class="no-show">
   <div class="container">
     <div class="envelope-wrapper" id="envelope">
       <div class="envelope">
@@ -467,7 +575,15 @@
       </div>
       <div class="seal" id="seal"></div>
     </div>
+    <div class="invitation-text">
+      <h2>Սիրելի բարեկամներ և ընկերներ</h2>
+      <p>Մեր կյանքում կարևոր իրադարձություն է<br>
+      սպասվում՝ մենք ընտանիք ենք կազմում<br>
+      և ցանկանում ենք Ձեզ հետ<br>
+      կիսել մեր կյանքի լուսավոր օրը։</p>
 
+      <p>Սիրով հրավիրում ենք Ձեզ մեր հարսանիքին։</p>
+    </div>
     <div class="countdown-section" id="countdown">
       <h2>ՄՆԱՑԵԼ Է</h2>
       <div class="timer">
@@ -477,15 +593,8 @@
         <div><div id="seconds">00</div><span>ՎՐԿ․</span></div>
       </div>
     </div>
-    <div class="invitation-text">
-      <h2>Բարեկամներ և ընկերներ</h2>
-      <p>Մեր կյանքում կարևոր իրադարձություն է<br>
-      սպասվում՝ մենք ընտանիք ենք կազմում<br>
-      և ցանկանում ենք Ձեզ հետ<br>
-      կիսել մեր կյանքի լուսավոր օրը։</p>
-
-      <p>Սիրով հրավիրում ենք Ձեզ մեր հարսանիքին։</p>
-    </div>
+    
+   
     <div class="schedule-card">
       <h2 class="schedule-title">Օրակարգ</h2>
 
@@ -523,6 +632,33 @@
     <div class="couple-photo">
       <img src="couple2.jpg" alt="Զույգի նկար">
     </div>
+    <div class="calendar-wrapper">
+      <div class="calendar-title">Our Wedding Day</div>
+      <div class="calendar-month">Օգոստոս 2025</div>
+      <div class="calendar-days">
+        <div>Երկ</div>
+        <div>Երք</div>
+        <div>Չրք</div>
+        <div>Հնգ</div>
+        <div>Ուրբ</div>
+        <div>Շբթ</div>
+        <div>Կիր</div>
+      </div>
+      <div class="calendar-dates">
+        <div class="empty"></div><div class="empty"></div><div class="empty"></div><div class="empty"></div><div class="day">1</div><div class="day">2</div><div class="day">3</div>
+        <div class="day">4</div><div class="day">5</div><div class="day">6</div><div class="day">7</div><div class="day">8</div><div class="day">9</div><div class=" heart-day">
+          <svg viewBox="0 0 32 29" class="heart-outline">
+            <path d="M23.6,0c-2.9,0-5.4,1.8-6.6,4.3C15.8,1.8,13.3,0,10.4,0C4.7,0,0,4.7,0,10.4c0,6.1,7.2,11.2,15.3,18.1
+            c0.3,0.3,0.8,0.3,1.1,0c8.1-6.9,15.3-12,15.3-18.1C32,4.7,27.3,0,21.6,0z"
+            fill="none" stroke="#3B3B28" stroke-width="1.5"/>
+          </svg>
+          <span class="heart-text">10</span>
+        </div>
+        <div class="day">11</div><div class="day">12</div><div class="day">13</div><div class="day">14</div><div class="day">15</div><div class="day">16</div><div class="day">17</div>
+        <div class="day">18</div><div class="day">19</div><div class="day">20</div><div class="day">21</div><div class="day">22</div><div class="day">23</div><div class="day">24</div>
+        <div class="day">25</div><div class="day">26</div><div class="day">27</div><div class="day">28</div><div class="day">29</div><div class="day ">30</div><div class="day">31</div>
+      </div>
+    </div>
   </div>
 
   <script>
@@ -532,6 +668,11 @@
     seal.addEventListener('click', () => {
       if (!envelope.classList.contains('flap')) {
         envelope.classList.add('flap');
+        
+        // Հեռացնել no-show class-ը և ավելացնել opened class-ը
+        document.body.classList.remove('no-show');
+        document.body.classList.add('opened');
+        
         setTimeout(() => {
           document.querySelector('.letter').scrollIntoView({ behavior: 'smooth' });
         }, 800);
@@ -562,7 +703,8 @@
 
     updateCountdown();
     setInterval(updateCountdown, 1000);
-    //map
+
+    //map function
     function openMap(place) {
       let url = '';
       if (place === 'church') {
@@ -572,7 +714,6 @@
       }
       window.open(url, '_blank');
     }
-
   </script>
 </body>
 </html>
