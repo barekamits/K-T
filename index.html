@@ -56,7 +56,7 @@
     }
 
     .envelope-wrapper {
-      margin-top: 60px; /* Կրճատվեց 80px-ից */
+      margin-top: 60px;
       background: var(--bg-envelope-color);
       box-shadow: 0 0 40px var(--shadow-color);
       position: relative;
@@ -98,7 +98,7 @@
 
     .letter {
       position: absolute;
-      bottom: -150px;
+      bottom: -200px;
       left: -4%;
       width: 104%;
       height: auto;
@@ -161,6 +161,7 @@
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
       overflow: hidden;
       position: relative;
+      margin-bottom: 30px;
     }
 
     .card-header {
@@ -170,7 +171,8 @@
     }
 
     .save-the-date-title {
-      font-size: 20px;
+      font-family: 'Heghnar';
+      font-size: 29px;
       font-weight: 400;
       color: #333;
       letter-spacing: 2px;
@@ -257,9 +259,42 @@
       }
     }
 
+    .invitation-text {
+      margin-top: 230px;
+      z-index: 1;
+      position: relative;
+      max-width: 600px;
+      padding: 30px 25px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      color: #333;
+      font-family: 'Boloragir-Italic';
+      text-align: center;
+      line-height: 1.6;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1.5s ease;
+    }
+    
+
+    .invitation-text h2 {
+      font-size: 32px;
+      margin-bottom: 25px;
+      color: #444;
+    }
+
+    .invitation-text p {
+      font-size: 20px;
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+
     .countdown-section {
       text-align: center;
-      margin-top: calc(var(--section-spacing) * 2.5); /* 150px */
+      margin-top: var(--section-spacing);
       opacity: 0;
       transform: translateY(40px);
       transition: all 1.5s ease;
@@ -291,32 +326,6 @@
       font-size: 14px;
       color: #666;
       margin-top: 5px;
-    }
-
-    .invitation-text {
-      margin-top: var(--section-spacing);
-      text-align: center;
-      max-width: 600px;
-      padding: 30px 25px;
-      background: rgba(255, 255, 255, 0.7);
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      color: #333;
-      font-family: 'Boloragir-Italic';
-      font-size: 20px;
-      line-height: 1.6;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 1.5s ease;
-    }
-
-    .invitation-text h2 {
-      font-family: 'Boloragir-Italic';      
-      font-size: 32px;
-      margin-bottom: 20px;
-      color: #444;
     }
 
     .schedule-card {
@@ -420,7 +429,7 @@
 
     .couple-photo {
       margin-top: var(--section-spacing);
-      margin-bottom: 40px; /* Կրճատվեց 100px-ից */
+      margin-bottom: 40px;
       text-align: center;
       opacity: 0;
       transform: translateY(40px);
@@ -520,8 +529,8 @@
     }
 
     /* Երևացնել կոնտենտը ծրարը բացելուց հետո */
-    body.opened .countdown-section,
     body.opened .invitation-text,
+    body.opened .countdown-section,
     body.opened .schedule-card,
     body.opened .announcement-card,
     body.opened .couple-photo {
@@ -530,11 +539,11 @@
     }
 
     /* Համաչափ երևալու անիմացիաների ժամկետներ */
-    body.opened .countdown-section {
+    body.opened .invitation-text {
       transition-delay: 1s;
     }
 
-    body.opened .invitation-text {
+    body.opened .countdown-section {
       transition-delay: 1.3s;
     }
 
@@ -575,6 +584,7 @@
       </div>
       <div class="seal" id="seal"></div>
     </div>
+    
     <div class="invitation-text">
       <h2>Սիրելի բարեկամներ և ընկերներ</h2>
       <p>Մեր կյանքում կարևոր իրադարձություն է<br>
@@ -584,6 +594,7 @@
 
       <p>Սիրով հրավիրում ենք Ձեզ մեր հարսանիքին։</p>
     </div>
+    
     <div class="countdown-section" id="countdown">
       <h2>ՄՆԱՑԵԼ Է</h2>
       <div class="timer">
@@ -594,7 +605,6 @@
       </div>
     </div>
     
-   
     <div class="schedule-card">
       <h2 class="schedule-title">Օրակարգ</h2>
 
@@ -622,6 +632,7 @@
         <button class="map-button" onclick="openMap('restaurant')">Ինչպես հասնել</button>
       </div>
     </div>
+    
     <div class="announcement-card">
       <h2 class="announcement-title">Հայտարարություն</h2>
       <p class="announcement-text">
@@ -629,9 +640,11 @@
         որպեսզի լիարժեք վայելեք օրը։
       </p>
     </div>
+    
     <div class="couple-photo">
       <img src="couple2.jpg" alt="Զույգի նկար">
     </div>
+    
     <div class="calendar-wrapper">
       <div class="calendar-title">Our Wedding Day</div>
       <div class="calendar-month">Օգոստոս 2025</div>
