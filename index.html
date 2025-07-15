@@ -155,6 +155,7 @@
     }
 
     .save-the-date-card {
+      transform: translateY(100px); /* որքան ցած ուզում ես */
       width: 100%;
       background: white;
       border-radius: 10px;
@@ -189,9 +190,9 @@
     }
 
     .photo-container {
-      margin: 15px auto;
-      width: 200px;
-      height: 260px;
+      transform: translateY(20px);
+      width: 335px;
+      height: 340px;
       border-radius: 100px;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
       overflow: hidden;
@@ -226,8 +227,8 @@
     }
 
     .couple-names {
-      font-family: 'Allura', cursive;
-      font-size: 36px;
+      font-family: 'Boloragir-Italic';
+      font-size: 26px;
       color: #333;
       margin-bottom: 10px;
       line-height: 1.2;
@@ -236,7 +237,7 @@
     .scroll-down-indicator {
       position: relative;
       right: -129px;
-      margin-top: 15px;
+      margin-top: 110px;
       width: 30px;
       height: 30px;
       border-right: 3px solid #666;
@@ -292,40 +293,58 @@
       line-height: 1.6;
     }
 
-    .countdown-section {
+    .countdown-image-wrapper {
+      position: relative;
       text-align: center;
       margin-top: var(--section-spacing);
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 1.5s ease;
+      margin-bottom: 40px;
     }
 
-    .countdown-section h2 {
+    .countdown-background {
+      max-width: 90%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      display: block;
+      margin: 0 auto;
+    }
+
+    .countdown-overlay {
+      position: absolute;
+      top: 79%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-family: 'Maler', sans-serif;
+      text-align: center;
+      width: 100%;
+      pointer-events: none;
+    }
+
+    .countdown-overlay h2 {
       font-family: 'Boloragir-Italic';
       font-size: 36px;
-      color: #444;
       margin-bottom: 20px;
+      letter-spacing: 2px;
     }
 
-    .timer {
+    .countdown-overlay .timer {
       display: flex;
+      gap: 40px;
       justify-content: center;
-      gap: 35px;
-      font-size: 44px;
-      font-weight: italic;
-      color: #333;
+      font-size: 22px;
     }
 
-    .timer div {
+    .countdown-overlay .timer div {
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
-    .timer span {
-      font-size: 14px;
-      color: #666;
-      margin-top: 5px;
+    .countdown-overlay .timer div div {
+      font-size: 40px;
+      font-weight: bold;
+      font-family: 'Maler';
     }
 
     .schedule-card {
@@ -575,7 +594,7 @@
               </div>
               <div class="photo-container"></div>
               <div class="names-section">
-                <h2 class="couple-names">Tigran & Kalina</h2>
+                <h2 class="couple-names">Տիգրան & Կալինա</h2>
               </div>
             </div>
             <div class="scroll-down-indicator"></div>
@@ -592,16 +611,19 @@
       և ցանկանում ենք Ձեզ հետ<br>
       կիսել մեր կյանքի լուսավոր օրը։</p>
 
-      <p>Սիրով հրավիրում ենք Ձեզ մեր հարսանիքին։</p>
+      <p>Սիրով հրավիրում ենք Ձեզ՝ ներկա գտնվելու մեր հարսանյաց հանդեսին։</p>
     </div>
     
-    <div class="countdown-section" id="countdown">
-      <h2>ՄՆԱՑԵԼ Է</h2>
-      <div class="timer">
-        <div><div id="days">00</div><span>ՕՐ</span></div>
-        <div><div id="hours">00</div><span>ԺԱՄ</span></div>
-        <div><div id="minutes">00</div><span>ՐՈՊԵ</span></div>
-        <div><div id="seconds">00</div><span>ՎՐԿ․</span></div>
+    <div class="countdown-image-wrapper">
+      <img src="couple3.jpg" alt="Countdown ֆոն" class="countdown-background" />
+      <div class="countdown-overlay">
+        <h2>ՄՆԱՑԵԼ Է</h2>
+        <div class="timer">
+          <div><div id="days">00</div><span>ՕՐ</span></div>
+          <div><div id="hours">00</div><span>ԺԱՄ</span></div>
+          <div><div id="minutes">00</div><span>ՐՈՊԵ</span></div>
+          <div><div id="seconds">00</div><span>ՎՐԿ․</span></div>
+        </div>
       </div>
     </div>
     
@@ -721,9 +743,9 @@
     function openMap(place) {
       let url = '';
       if (place === 'church') {
-        url = 'https://maps.app.goo.gl/2fC7jod1E6EmBCbu7';
+        url = 'https://yandex.by/maps/-/CHDojSm0'
       } else if (place === 'restaurant') {
-        url = 'https://maps.app.goo.gl/LaEiGUogn4ntL49t9';
+        url = 'https://yandex.by/maps/-/CHDonV-S';
       }
       window.open(url, '_blank');
     }
