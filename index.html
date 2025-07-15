@@ -2,93 +2,142 @@
 <html lang="hy">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ծրարի տեղադրում</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ծրար + Քարտ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
   <style>
     @font-face {
-      font-family: 'Poqrik';
-      src: url('poqrik.ttf') format('truetype');
+      font-family: 'Boloragir-Italic';
+      src: url('ArmBoloragir\ Italic.ttf') format('truetype');
       font-weight: normal;
       font-style: normal;
     }
     @font-face {
-      font-family: 'Montserrat-Regular';
-      src: url('Montserratarm-Regular.otf') format('opentype');
+      font-family: 'Vrdznagir';
+      src: url('Vrdznagir.otf') format('opentype');
       font-weight: normal;
       font-style: normal;
     }
-    @font-face {
-      font-family: 'Heghnar';
-      src: url('HEGHNAR.TTF') format('truetype');
-      font-weight: normal;
-      font-style: normal;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --primary: #fff;
+      --bg-envelope-color: #ffffff;
+      --envelope-tab: #f0f0f0;
+      --envelope-cover: #fdfdfd;
+      --shadow-color: rgba(0, 0, 0, 0.2);
     }
 
     body {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
       background: url('background.png') no-repeat center center;
       background-size: cover;
-      background-attachment: fixed;
+      background-position: center;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      font-family: sans-serif;
+    }
+
+    .container {
+      margin-top: 40px;
+      width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
-      overflow-x: hidden;
-      position: relative;
-      font-family: 'Dancing Script', cursive;
-      scroll-behavior: smooth;
     }
 
-    .envelope-container {
-      position: absolute;
-      top: 5px;
-      width: 100vw;
-      display: flex;
-      justify-content: center;
-      z-index: 10;
+    .envelope-wrapper {
+      margin-top: 80px;
+      background: var(--bg-envelope-color);
+      box-shadow: 0 0 40px var(--shadow-color);
+      position: relative;
+      width: 320px;
+      height: 250px;
+      perspective: 1000px;
     }
 
     .envelope {
+      position: relative;
       width: 100%;
-      max-width: 400px;
-      height: auto;
-      display: block;
-      animation: envelopeEnter 1.2s ease forwards;
+      height: 100%;
     }
 
-    @keyframes envelopeEnter {
-      0% {
-        opacity: 0;
-        transform: scale(0.8);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
+    .envelope::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      z-index: 1;
+      border-top: 140px solid var(--envelope-tab);
+      border-right: 160px solid transparent;
+      border-left: 160px solid transparent;
+      transform-origin: top;
+      transition: transform 0.6s ease-in-out 0.5s;
+      backface-visibility: hidden;
+    }
+
+    .envelope::after {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      width: 0;
+      height: 0;
+      border-top: 140px solid transparent;
+      border-right: 160px solid var(--envelope-cover);
+      border-bottom: 110px solid var(--envelope-cover);
+      border-left: 160px solid var(--envelope-cover);
+    }
+
+    .letter {
+      position: absolute;
+      bottom: -150px;
+      left: -4%;
+      width: 104%;
+      height: auto;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease-in-out;
+      z-index: 3;
+    }
+
+    .flap .envelope::before {
+      transform: rotateX(180deg);
+      z-index: 1;
+    }
+
+    .flap .letter {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.6s;
+    }
+
+    .seal {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 66px;
+      height: 60px;
+      transform: translate(-50%, -50%);
+      z-index: 4;
+      cursor: pointer;
+      background-image: url('removed.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: opacity 0.5s ease;
+    }
+
+    .flap .seal {
+      opacity: 0;
+      pointer-events: none;
     }
 
     .card-wrapper {
-      position: relative;
-      margin-top: 80px;
-      width: 95%;
-      max-width: 400px;
-      transform-origin: center;
-      z-index: 11;
       animation: cardEnter 1.2s ease-out forwards;
-      animation-delay: 1.2s;
+      animation-delay: 0.6s;
       opacity: 0;
-      transform: scale(0.9) translateY(20px);
-      margin-bottom: 40px;
+      transform: scale(0.95) translateY(20px);
     }
 
     @keyframes cardEnter {
@@ -105,7 +154,6 @@
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
       overflow: hidden;
       position: relative;
-      padding-bottom: 0;
     }
 
     .card-header {
@@ -125,7 +173,7 @@
 
     .save-the-date-title .script {
       font-family: 'Allura', cursive;
-      font-size: 10px;
+      font-size: 12px;
       text-transform: none;
       letter-spacing: 1px;
       color: #666;
@@ -135,16 +183,31 @@
       margin: 15px auto;
       width: 200px;
       height: 260px;
-      text-align: center;
-      position: relative;
       border-radius: 100px;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
       overflow: hidden;
       background: rgba(255, 255, 255, 0.95);
-      background-image: url('couple2.jpg');
+      background-image: url('couple.jpg');
       background-size: cover;
       background-position: center;
-      background-repeat: no-repeat;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .flap .photo-container {
+      animation: fadeInUp 2.8s ease forwards;
+      animation-delay: 1.2s;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .names-section {
@@ -162,599 +225,354 @@
     }
 
     .scroll-down-indicator {
-      position: absolute;
-      bottom: -50px;
-      left: 50%;
+      position: relative;
+      right: -129px;
+      margin-top: 15px;
       width: 30px;
       height: 30px;
       border-right: 3px solid #666;
       border-bottom: 3px solid #666;
       animation: arrowFadeMove 2s ease-in-out infinite;
-      cursor: pointer;
-      user-select: none;
-      z-index: 0;
-      transform-origin: center;
-      transform: translateX(-50%) rotate(45deg);
+      transform: rotate(45deg);
     }
 
     @keyframes arrowFadeMove {
       0% {
-        transform: translateX(-50%) translateY(0) rotate(45deg);
+        transform: rotate(45deg) translateY(0);
         opacity: 1;
       }
       80% {
         opacity: 0;
       }
       100% {
-        transform: translateX(-50%) translateY(-20px) rotate(45deg);
+        transform: rotate(45deg) translateY(-20px);
         opacity: 0;
       }
     }
 
-    .arch-wrapper {
-      width: 95%;
-      max-width: 400px;
-      margin: 40px auto 80px;
-      position: relative;
-      color: #333;
-      font-family: 'Dancing Script', cursive;
+    .countdown-section {
       text-align: center;
-      padding: 20px 0;
-    }
-
-    .arch-image {
-      width: 100%;
-      height: auto;
-      display: block;
-      position: relative;
-      margin-top: 0;
-      z-index: 1;
-    }
-
-    /* Բարեկամներ և ընկերներ տեքստը կամարի վերին հատվածում */
-    .friends-title {
-      position: absolute;
-      top: 25%;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: 'poqrik', cursive;
-      font-size: 0.9rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      color: #333;
-      text-align: center;
-      z-index: 3;
+      margin-top: 150px;
       opacity: 0;
-      max-width: 80%;
-      line-height: 1.2;
-      padding: 0 10px;
+      transform: translateY(40px);
+      transition: all 1.5s ease;
     }
 
-    .arch-text {
-      position: absolute;
-      top: 55%;
-      left: 50%;
-      width: 75%;
-      transform: translate(-50%, -50%);
-      padding: 15px 10px;
-      border-radius: 15px;
+    .flap ~ .countdown-section {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .countdown-section h2 {
+      font-family: 'Boloragir-Italic';
+      font-size: 36px;
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    .timer {
       display: flex;
-      flex-direction: column;
       justify-content: center;
-      align-items: center;
-      color: #333;
-      z-index: 2;
-      text-align: center;
-      gap: 3px;
-    }
-
-    .arch-text p {
-      font-family: 'Montserrat-Regular', sans-serif;
-      font-size: 10px;
-      font-weight: 400;
-      line-height: 1.2;
-      color: rgba(51, 51, 51, 0.95);
-      margin: 0;
-      opacity: 0;
-      transform: translateY(20px);
-      word-break: break-word;
-    }
-
-    .arch-text h3 {
-      font-family: 'poqrik', cursive;
-      font-size: 12px;
-      font-style: italic;
-      margin: 0;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    .arch-text h4 {
-      font-family: 'poqrik', cursive;
-      font-size: 12px;
-      font-weight: normal;
-      margin: 0;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    .arch-text .label {
-      font-family: 'Montserrat-Regular', sans-serif;
-      font-size: 9px;
-      font-weight: 400;
-      line-height: 1.2;
-      color: rgba(51, 51, 51, 0.95);
-      margin: 0;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    .arch-text .location {
-      font-family: 'Montserrat-Regular', sans-serif;
-      font-size: 9px;
-      font-weight: 400;
-      line-height: 1.2;
-      color: rgba(51, 51, 51, 0.95);
-      margin: 0;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    .arch-text .event-button {
-      background: transparent;
-      border: 1px solid #aaa;
-      padding: 4px 12px;
-      font-size: 8px;
-      border-radius: 20px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      opacity: 0;
-      transform: translateY(20px);
-      margin-top: 2px;
-    }
-
-    .event-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 40px;
-      margin: 40px auto;
-      width: 95%;
-      max-width: 400px;
-      font-family: 'Dancing Script', cursive;
+      gap: 35px;
+      font-size: 44px;
+      font-weight: italic;
       color: #333;
     }
 
-    .event-card {
-      padding: 20px;
-      width: 100%;
-      margin: 30px auto;
-      text-align: center;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.8);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    .timer div {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 8px;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 1s ease forwards;
     }
 
-    .event-time {
-      font-size: 28px;
-      font-family: 'Allura', cursive;
-    }
-
-    .event-label {
-      font-size: 16px;
-      letter-spacing: 1px;
-    }
-
-    .event-place {
-      font-size: 18px;
-      font-style: italic;
-      font-family: 'Allura', cursive;
-    }
-
-    .event-location {
+    .timer span {
       font-size: 14px;
       color: #666;
+      margin-top: 5px;
     }
-
-    .event-button {
-      background: transparent;
-      border: 1px solid #aaa;
-      padding: 8px 20px;
-      font-size: 12px;
-      border-radius: 20px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .event-button:hover {
-      background: #f3f3f3;
-    }
-
-    .map-container {
-      max-height: 0;
-      opacity: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease, opacity 0.3s ease;
-      width: 100%;
-    }
-
-    .map-container.active {
-      max-height: 250px;
-      opacity: 1;
-    }
-
-    .map-container iframe {
-      width: 100%;
-      height: 250px;
-      border: 0;
-    }
-
-    .announcement-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 40px auto 40px;
-      width: 95%;
-      max-width: 400px;
-      position: relative;
-    }
-
-    .announcement-card-glass {
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(10px);
-      border-radius: 15px;
-      padding: 20px;
+    .invitation-text {
+      margin-top: 60px;
       text-align: center;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      margin-bottom: 20px;
-      z-index: 2;
-    }
-
-    .announcement-card-glass h4 {
-      font-family: 'poqrik', cursive;
-      font-size: 18px;
+      max-width: 600px;
+      padding: 30px 25px;
+      background: rgba(255, 255, 255, 0.7); /* թափանցիկ սպիտակ */
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
       color: #333;
-      margin-bottom: 10px;
-      font-weight: 700;
+      font-family: 'Boloragir-Italic';
+      font-size: 20px;
+      line-height: 1.6;
+      backdrop-filter: blur(6px); /* հայելու ֆոն էֆֆեկտ */
+      -webkit-backdrop-filter: blur(6px);
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(30px);
+      animation: fadeSlideUp 2s ease forwards;
+      animation-delay: 3.2s;
     }
 
-    .announcement-card-glass p {
-      font-family: 'Montserrat-Regular', sans-serif;
-      font-size: 14px;
-      color: #555;
-      line-height: 1.4;
-      margin: 0;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    .announcement-image {
-      width: 100%;
-      max-width: 200px;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    @keyframes fadeInUp {
-      to {
+    @keyframes fadeSlideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
         opacity: 1;
         transform: translateY(0);
       }
     }
-
-    /* Mobile responsive adjustments */
-    @media (max-width: 480px) {
-      .envelope {
-        width: 90%;
-      }
-      
-      .card-wrapper {
-        margin-top: 60px;
-        width: 90%;
-      }
-      
-      .friends-title {
-        top: 26%;
-        font-size: 1rem;
-      }
-      
-      .arch-text {
-        width: 72%;
-        top: 58%;
-        padding: 12px 8px;
-        gap: 2px;
-      }
-      
-      .arch-text p {
-        font-size: 9px;
-        line-height: 1.1;
-      }
-      
-      .arch-text h3, .arch-text h4 {
-        font-size: 11px;
-      }
-      
-      .arch-text .label, .arch-text .location {
-        font-size: 8px;
-      }
-      
-      .arch-text .event-button {
-        padding: 3px 10px;
-        font-size: 7px;
-      }
-      
-      .event-time {
-        font-size: 24px;
-      }
-      
-      .event-label {
-        font-size: 14px;
-      }
-      
-      .event-place {
-        font-size: 16px;
-      }
-      
-      .announcement-card-glass h4 {
-        font-size: 16px;
-      }
-      
-      .announcement-card-glass p {
-        font-size: 13px;
-      }
-      
-      .announcement-image {
-        max-width: 280px;
-      }
+    .invitation-text h2 {
+      font-family: 'Boloragir-Italic';      
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #444;
+    }
+    .schedule-card {
+      margin-top: 80px;
+      text-align: center;
+      max-width: 600px;
+      padding: 40px 30px;
+      background: transparent; /* ֆոնը հանված է */
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      font-family: 'Buloragir', cursive;
+      color: #333;
+      font-size: 20px;
+      line-height: 1.6;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeSlideUp 2s ease forwards;
+      animation-delay: 4.5s;
     }
 
-    @media (max-width: 390px) {
-      .friends-title {
-        top: 20%;
-        font-size: 0.7rem;
-      }
-      
-      .arch-text {
-        width: 70%;
-        top: 60%;
-        padding: 10px 6px;
-        gap: 1px;
-      }
-      
-      .arch-text p {
-        font-size: 8px;
-        line-height: 1.0;
-      }
-      
-      .arch-text h3, .arch-text h4 {
-        font-size: 10px;
-      }
-      
-      .arch-text .label, .arch-text .location {
-        font-size: 7px;
-      }
-      
-      .arch-text .event-button {
-        padding: 2px 8px;
-        font-size: 6px;
-      }
-      
-      .event-time {
-        font-size: 22px;
-      }
-      
-      .event-label {
-        font-size: 13px;
-      }
-      
-      .event-place {
-        font-size: 15px;
-      }
-      
-      .announcement-image {
-        max-width: 300px;
-      }
+    .schedule-title {
+      font-size: 36px;
+      margin-bottom: 30px;
+      color: #444;
     }
 
-    @media (max-width: 360px) {
-      .friends-title {
-        top: 18%;
-        font-size: 0.6rem;
-      }
-      
-      .arch-text {
-        width: 68%;
-        top: 62%;
-        padding: 8px 5px;
-        gap: 1px;
-      }
-      
-      .arch-text p {
-        font-size: 7px;
-        line-height: 0.9;
-      }
-      
-      .arch-text h3, .arch-text h4 {
-        font-size: 9px;
-      }
-      
-      .arch-text .label, .arch-text .location {
-        font-size: 6px;
-      }
-      
-      .arch-text .event-button {
-        padding: 2px 6px;
-        font-size: 5px;
-      }
-      
-      .event-time {
-        font-size: 20px;
-      }
-      
-      .event-label {
-        font-size: 12px;
-      }
-      
-      .event-place {
-        font-size: 14px;
-      }
-      
-      .announcement-image {
-        max-width: 320px;
-      }
+    .event-step {
+      margin-bottom: 30px;
+      position: relative;
+    }
+    .event-icon {
+      width: 50px;       /* կամ 60px ըստ ճաշակի */
+      height: auto;
+      display: block;
+      margin: 0 auto 10px; /* կենտրոնացնի և ներքևում բացվածք տա տեքստից առաջ */
+      opacity: 0.9;
     }
 
-    /* Extra small screens */
-    @media (max-width: 320px) {
-      .friends-title {
-        top: 16%;
-        font-size: 0.55rem;
-      }
-      
-      .arch-text {
-        width: 65%;
-        top: 64%;
-        padding: 6px 4px;
-        gap: 1px;
-      }
-      
-      .arch-text p {
-        font-size: 6px;
-        line-height: 0.8;
-      }
-      
-      .arch-text h3, .arch-text h4 {
-        font-size: 8px;
-      }
-      
-      .arch-text .label, .arch-text .location {
-        font-size: 5px;
-      }
-      
-      .arch-text .event-button {
-        padding: 1px 5px;
-        font-size: 4px;
-      }
-      
-      .announcement-image {
-        max-width: 280px;
-      }
+    .icon-placeholder {
+      font-size: 32px;
+      margin-top: 10px;
+      opacity: 0.6;
     }
+
+    .place-name {
+      font-size: 18px;
+      color: #555;
+      margin: 8px 0;
+    }
+
+    .map-button {
+      margin-top: 8px;
+      padding: 8px 16px;
+      font-size: 16px;
+      font-family: inherit;
+      border: none;
+      border-radius: 30px;
+      background-color: #444;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .map-button:hover {
+      background-color: #666;
+    }
+    .announcement-card {
+      margin-top: 60px;
+      text-align: center;
+      max-width: 600px;
+      padding: 30px 25px;
+      background: transparent;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      font-family: 'Boloragir-Italic';
+      color: #333;
+      font-size: 20px;
+      line-height: 1.6;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeSlideUp 2s ease forwards;
+      animation-delay: 5.2s;
+    }
+
+    .announcement-title {
+      font-size: 28px;
+      margin-bottom: 15px;
+      color: #444;
+      font-family: 'Boloragir-Italic';
+    }
+
+    .announcement-text {
+      font-size: 20px;
+      color: #333;
+      font-family: 'Boloragir-Italic';
+    }
+    .couple-photo {
+      margin-top: 60px;
+      margin-bottom: 100px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeSlideUp 2s ease forwards;
+      animation-delay: 5.8s;
+    }
+
+    .couple-photo img {
+      max-width: 90%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+
   </style>
 </head>
 <body>
-  <div class="envelope-container">
-    <img src="image-removebg-preview.png" alt="Ծրար" class="envelope" />
-  </div>
-
-  <div class="card-wrapper">
-    <div class="save-the-date-card">
-      <div class="card-header">
-        <h1 class="save-the-date-title">
-          SAVE <span class="script">the</span> DATE
-        </h1>
+  <div class="container">
+    <div class="envelope-wrapper" id="envelope">
+      <div class="envelope">
+        <div class="letter">
+          <div class="card-wrapper">
+            <div class="save-the-date-card">
+              <div class="card-header">
+                <h1 class="save-the-date-title">
+                  SAVE <span class="script">the</span> DATE
+                </h1>
+              </div>
+              <div class="photo-container"></div>
+              <div class="names-section">
+                <h2 class="couple-names">Tigran & Kalina</h2>
+              </div>
+            </div>
+            <div class="scroll-down-indicator"></div>
+          </div>
+        </div>
       </div>
-      <div class="photo-container"></div>
-      <div class="names-section">
-        <h2 class="couple-names">Tigran & Kalina</h2>
+      <div class="seal" id="seal"></div>
+    </div>
+
+    <div class="countdown-section" id="countdown">
+      <h2>ՄՆԱՑԵԼ Է</h2>
+      <div class="timer">
+        <div><div id="days">00</div><span>ՕՐ</span></div>
+        <div><div id="hours">00</div><span>ԺԱՄ</span></div>
+        <div><div id="minutes">00</div><span>ՐՈՊԵ</span></div>
+        <div><div id="seconds">00</div><span>ՎՐԿ․</span></div>
       </div>
     </div>
-    <div class="scroll-down-indicator"></div>
-  </div>
+    <div class="invitation-text">
+      <h2>Բարեկամներ և ընկերներ</h2>
+      <p>Մեր կյանքում կարևոր իրադարձություն է<br>
+      սպասվում՝ մենք ընտանիք ենք կազմում<br>
+      և ցանկանում ենք Ձեզ հետ<br>
+      կիսել մեր կյանքի լուսավոր օրը։</p>
 
-  <div class="arch-wrapper">
-    <img src="kamar.png" alt="Կամար" class="arch-image" />
-    <h2 class="friends-title">Բարեկամներ և ընկերներ</h2>
-    <div class="arch-text">
-      <p>Մեր կյանքում կարևոր իրադարձություն է <br> սպասվում՝ մենք ընտանիք ենք կազմում <br>և ցանկանում ենք Ձեզ հետ <br>կիսել մեր կյանքի լուսավոր օրը։</p>
       <p>Սիրով հրավիրում ենք Ձեզ մեր հարսանիքին։</p>
+    </div>
+    <div class="schedule-card">
+      <h2 class="schedule-title">Օրակարգ</h2>
 
-      <h3>10 Օգոստոսի 2025</h3>
-      <h4 class="time">12:30</h4>
-      <p class="label">Պսակադրություն</p>
-      <h4 class="place">Սբ. Գրիգոր Նարեկացի</h4>
-      <p class="location">Վանաձոր</p>
+      <div class="event-step">
+        <img src="qartez.png" alt="Փեսայի տուն" class="event-icon">
+        <p><strong>Փեսայի տուն — 10:00</strong></p>
+      </div>
 
-      <button class="event-button" onclick="toggleMap('map1', this)">Ինչպես Հասնել</button>
-      <div id="map1" class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d116177.97594857201!2d44.32305274625354!3d40.799584625152676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x4041bc019e3fffff%3A0x4c9e04f91597d607!2sRF4R%2B442%2C%20Abovyan%20St%2C%20Vanadzor!3m2!1d40.805277!2d44.490431799999996!5e0!3m2!1sen!2sam!4v1752501692692!5m2!1sen!2sam" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="event-step">
+        <img src="matani.png" alt="Հարսի տուն" class="event-icon">
+        <p><strong>Հարսի տուն — 11:30</strong></p>
+      </div>
+
+      <div class="event-step">
+        <img src="ekexeci.png" alt="Եկեղեցի" class="event-icon">
+        <p><strong>Եկեղեցի — 12:30</strong></p>
+        <p class="place-name">Սուրբ Գրիգոր Նարեկացի</p>
+        <button class="map-button" onclick="openMap('church')">Ինչպես հասնել</button>
+      </div>
+
+      <div class="event-step">
+        <img src="apse.png" alt="Ռեստորան" class="event-icon">
+        <p><strong>Ռեստորան — 16:30</strong></p>
+        <p class="place-name"> Tigran Mets Ռեստորանային համալիր</p>
+        <button class="map-button" onclick="openMap('restaurant')">Ինչպես հասնել</button>
       </div>
     </div>
-  </div>
-
-  <div class="event-card">
-    <h2 class="event-time">16:30</h2>
-    <p class="event-label">Հարսանյաց հանդիսություն</p>
-    <h3 class="event-place">Tigran Mets Ռեստորանային համալիր</h3>
-    <p class="event-location">Teryan Street, Gyumri</p>
-    <button class="event-button" onclick="toggleMap('map2', this)">Ինչպես Հասնել</button>
-    <div id="map2" class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.168626692052!2d43.8516286755464!3d40.780306833431936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4041fb86ed155897%3A0x77257bb0ca2fd7b5!2sTigran%20Mets!5e0!3m2!1sen!2sam!4v1752501935771!5m2!1sen!2sam" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="announcement-card">
+      <h2 class="announcement-title">Հայտարարություն</h2>
+      <p class="announcement-text">
+        Խնդրում ենք ձեզ հետ վերցնել հարմարավետ կոշիկներ,<br>
+        որպեսզի լիարժեք վայելեք օրը։
+      </p>
     </div>
-  </div>
-
-  <div class="announcement-container">
-    <div class="announcement-card-glass">
-      <h4>Հայտարարություն</h4>
-      <p>Խնդրում ենք Ձեզ հետ վերցնել հարմարավետ կոշիկներ,<br> որպեսզի լիարժեք վայելեք օրը։</p>
+    <div class="couple-photo">
+      <img src="couple2.jpg" alt="Զույգի նկար">
     </div>
-    <img class="announcement-image" src="last.png" alt="կոշիկների խորհուրդ">
   </div>
 
   <script>
-    function toggleMap(id, button) {
-      const currentMap = document.getElementById(id);
-      const allMaps = document.querySelectorAll('.map-container');
-      const allButtons = document.querySelectorAll('.event-button');
+    const envelope = document.getElementById('envelope');
+    const seal = document.getElementById('seal');
 
-      const isActive = currentMap.classList.contains('active');
-
-      // Փակել բոլոր քարտեզները
-      allMaps.forEach(map => {
-        map.classList.remove('active');
-      });
-
-      // Վերականգնել բոլոր կոճակների տեքստը
-      allButtons.forEach(btn => {
-        btn.textContent = 'Ինչպես Հասնել';
-      });
-
-      // Եթե սեղմածը արդեն բացված էր՝ փակել, այլապես բացել
-      if (!isActive) {
-        currentMap.classList.add('active');
-        button.textContent = 'ՓԱԿԵԼ ՔԱՐՏԵԶԸ';
-      }
-    }
-    
-    window.addEventListener('load', () => {
-      const elements = document.querySelectorAll('.friends-title, .arch-text p, .arch-text h3, .arch-text h4, .arch-text .label, .arch-text .location, .arch-text .event-button, .event-card, .announcement-card-glass h4, .announcement-card-glass p, .announcement-image');
-
-      let delay = 500;
-      const step = 200;
-
-      elements.forEach(el => {
+    seal.addEventListener('click', () => {
+      if (!envelope.classList.contains('flap')) {
+        envelope.classList.add('flap');
         setTimeout(() => {
-          el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-          el.style.opacity = '1';
-          el.style.transform = el.classList.contains('friends-title') ? 'translateX(-50%) translateY(0)' : 'translateY(0)';
-        }, delay);
-        delay += step;
-      });
+          document.querySelector('.letter').scrollIntoView({ behavior: 'smooth' });
+        }, 800);
+      }
     });
-  </script>
 
+    // Countdown Logic
+    const targetDate = new Date("2025-08-10T00:00:00").getTime();
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      daysEl.innerText = String(days).padStart(2, '0');
+      hoursEl.innerText = String(hours).padStart(2, '0');
+      minutesEl.innerText = String(minutes).padStart(2, '0');
+      secondsEl.innerText = String(seconds).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+    //map
+    function openMap(place) {
+      let url = '';
+      if (place === 'church') {
+        url = 'https://maps.app.goo.gl/2fC7jod1E6EmBCbu7';
+      } else if (place === 'restaurant') {
+        url = 'https://maps.app.goo.gl/LaEiGUogn4ntL49t9';
+      }
+      window.open(url, '_blank');
+    }
+
+  </script>
 </body>
 </html>
