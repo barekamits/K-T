@@ -423,6 +423,10 @@
     }
 
     .announcement-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      flex-wrap: wrap;
       margin-top: var(--section-spacing);
       text-align: center;
       max-width: 600px;
@@ -439,6 +443,26 @@
       opacity: 0;
       transform: translateY(50px);
       transition: all 1.5s ease;
+    }
+    .announcement-icon {
+      width: 40px;
+      height: 40px;
+      background-image: url('smile.png');
+      background-size: cover;
+      background-position: center;
+      flex-shrink: 0;
+      margin-top: 5px;
+    }
+
+    @media (max-width: 600px) {
+      .announcement-card {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+      }
+      .announcement-icon {
+        margin: 10px 0 0 0;
+      }
     }
 
     .announcement-title {
@@ -704,7 +728,7 @@
       </div>
     </div>
     <!-- ՀԱՅՏԱՐԱՐՈՒԹՅԱՆ ԲԼՈԿԸ՝ ՏԵՂԱՓՈԽՎԱԾ ՎԵՐՋԻՆ -->
-    <div class="announcement-card" style="display: flex; align-items: flex-start; gap: 15px;">
+    <div class="announcement-card">
       <div>
         <h2 class="announcement-title">Հիշեցում</h2>
         <p class="announcement-text">
@@ -712,16 +736,7 @@
           որպեսզի լիարժեք վայելեք օրը։
         </p>
       </div>
-      <div style="
-        width: 40px;
-        height: 40px;
-        background-image: url('smile.png');
-        background-size: cover;
-        background-position: center;
-        margin-top: 30px;
-        margin-right: 25px;
-        transform: translateX(-195px);
-      "></div>
+      <div class="announcement-icon"></div>
     </div>
   </div>
 
