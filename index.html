@@ -236,7 +236,7 @@
 
     .scroll-down-indicator {
       position: relative;
-      right: -129px;
+      right: -150px;
       margin-top: 110px;
       width: 30px;
       height: 30px;
@@ -260,46 +260,15 @@
       }
     }
 
-    .invitation-text {
-      margin-top: 350px;
-      z-index: 1;
-      position: relative;
-      max-width: 600px;
-      padding: 30px 25px;
-      background: rgba(255, 255, 255, 0.7);
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      color: #333;
-      font-family: 'Boloragir-Italic';
-      text-align: center;
-      line-height: 1.6;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      opacity: 0;
-      transition: all 3s ease;
-      transition-delay: 2s; /* 👉 կսկսի երևալ flap-ից 2 վայրկյան հետո */
-    }
-    
-
-    .invitation-text h2 {
-      font-size: 32px;
-      margin-bottom: 25px;
-      color: #444;
-    }
-
-    .invitation-text p {
-      font-size: 20px;
-      margin-bottom: 15px;
-      line-height: 1.6;
-    }
-
     .countdown-image-wrapper {
       position: relative;
       text-align: center;
-      margin-top: var(--section-spacing);
+      margin-top: 250px;
       margin-bottom: 40px;
+      opacity: 1;
+      transform: translateY(0);
+      transition: none;
     }
-
     .countdown-background {
       max-width: 90%;
       height: auto;
@@ -345,6 +314,39 @@
       font-size: 40px;
       font-weight: bold;
       font-family: 'Maler';
+    }
+
+    .invitation-text {
+      margin-top: 20px;
+      z-index: 1;
+      position: relative;
+      max-width: 600px;
+      padding: 30px 25px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      color: #333;
+      font-family: 'Boloragir-Italic';
+      text-align: center;
+      line-height: 1.6;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      opacity: 0;
+      transition: all 3s ease;
+      transition-delay: 2s; /* 👉 կսկսի երևալ flap-ից 2 վայրկյան հետո */
+    }
+    
+
+    .invitation-text h2 {
+      font-size: 32px;
+      margin-bottom: 25px;
+      color: #444;
+    }
+
+    .invitation-text p {
+      font-size: 20px;
+      margin-bottom: 15px;
+      line-height: 1.6;
     }
 
     .schedule-card {
@@ -549,7 +551,7 @@
 
     /* Երևացնել կոնտենտը ծրարը բացելուց հետո */
     body.opened .invitation-text,
-    body.opened .countdown-section,
+    body.opened .countdown-image-wrapper,
     body.opened .schedule-card,
     body.opened .announcement-card,
     body.opened .couple-photo {
@@ -558,11 +560,11 @@
     }
 
     /* Համաչափ երևալու անիմացիաների ժամկետներ */
-    body.opened .invitation-text {
+    body.opened .countdown-image-wrapper {
       transition-delay: 1s;
     }
 
-    body.opened .countdown-section {
+    body.opened .invitation-text {
       transition-delay: 1.3s;
     }
 
@@ -604,18 +606,8 @@
       <div class="seal" id="seal"></div>
     </div>
     
-    <div class="invitation-text">
-      <h2>Սիրելի բարեկամներ և ընկերներ</h2>
-      <p>Մեր կյանքում կարևոր իրադարձություն է<br>
-      սպասվում՝ մենք ընտանիք ենք կազմում<br>
-      և ցանկանում ենք Ձեզ հետ<br>
-      կիսել մեր կյանքի լուսավոր օրը։</p>
-
-      <p>Սիրով հրավիրում ենք Ձեզ՝ ներկա գտնվելու մեր հարսանյաց հանդեսին։</p>
-    </div>
-    
     <div class="countdown-image-wrapper">
-      <img src="couple3.jpg" alt="Countdown ֆոն" class="countdown-background" />
+      <img src="coloredhand.png" alt="Countdown ֆոն" class="countdown-background" />
       <div class="countdown-overlay">
         <h2>ՄՆԱՑԵԼ Է</h2>
         <div class="timer">
@@ -625,6 +617,16 @@
           <div><div id="seconds">00</div><span>ՎՐԿ․</span></div>
         </div>
       </div>
+    </div>
+    
+    <div class="invitation-text">
+      <h2>Սիրելի բարեկամներ և ընկերներ</h2>
+      <p>Մեր կյանքում կարևոր իրադարձություն է<br>
+      սպասվում՝ մենք ընտանիք ենք կազմում<br>
+      և ցանկանում ենք Ձեզ հետ<br>
+      կիսել մեր կյանքի լուսավոր օրը։</p>
+
+      <p>Սիրով հրավիրում ենք Ձեզ՝ ներկա գտնվելու մեր հարսանյաց հանդեսին։</p>
     </div>
     
     <div class="schedule-card">
