@@ -49,7 +49,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      background: url('background2.png') no-repeat center center;
+      background: url('background3.png') no-repeat center center;
       background-size: cover;
       background-position: center;
       min-height: 100vh;
@@ -422,57 +422,61 @@
       background-color: #666;
     }
 
-.announcement-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  margin-top: var(--section-spacing);
-  text-align: center;
-  max-width: 600px;
-  padding: 30px 25px;
-  background: transparent;
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  font-family: 'Boloragir-Italic';
-  color: #333;
-  font-size: 20px;
-  line-height: 1.6;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 1.5s ease;
-}
+    .announcement-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: var(--section-spacing);
+      text-align: center;
+      max-width: 600px;
+      padding: 30px 25px;
+      background: transparent;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      font-family: 'Boloragir-Italic';
+      color: #333;
+      font-size: 20px;
+      line-height: 1.6;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1.5s ease;
+    }
+    .announcement-icon {
+      width: 40px;
+      height: 40px;
+      background-image: url('smile.png');
+      background-size: cover;
+      background-position: center;
+      flex-shrink: 0;
+      margin-top: 5px;
+    }
 
-.announcement-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-}
+    @media (max-width: 600px) {
+      .announcement-card {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+      }
+      .announcement-icon {
+        margin: 10px 0 0 0;
+      }
+    }
 
-.announcement-title {
-  font-size: 28px;
-  color: #444;
-  font-family: 'Boloragir-Italic';
-  margin: 0;
-}
+    .announcement-title {
+      font-size: 28px;
+      margin-bottom: 15px;
+      color: #444;
+      font-family: 'Boloragir-Italic';
+    }
 
-.announcement-icon {
-  width: 36px;
-  height: 36px;
-  background-image: url('smile.png');
-  background-size: cover;
-  background-position: center;
-}
-
-.announcement-text {
-  font-size: 20px;
-  color: #333;
-  font-family: 'Boloragir-Italic';
-  margin: 0;
-}
+    .announcement-text {
+      font-size: 20px;
+      color: #333;
+      font-family: 'Boloragir-Italic';
+    }
 
     .couple-photo {
       margin-top: var(--section-spacing);
@@ -651,7 +655,7 @@
       <p>Սիրով հրավիրում ենք Ձեզ՝ ներկա գտնվելու մեր հարսանյաց հանդեսին։</p>
     </div>
     <div class="countdown-image-wrapper">
-      <img src="coloredhand.png" alt="Countdown ֆոն" class="countdown-background" />
+      <img src="handslast.png" alt="Countdown ֆոն" class="countdown-background" />
       <div class="countdown-overlay">
         <h2>ՄՆԱՑԵԼ Է</h2>
         <div class="timer">
