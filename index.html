@@ -423,10 +423,6 @@
     }
 
     .announcement-card {
-      display: flex;
-      align-items: flex-start;
-      gap: 15px;
-      flex-wrap: wrap;
       margin-top: var(--section-spacing);
       text-align: center;
       max-width: 600px;
@@ -444,6 +440,14 @@
       transform: translateY(50px);
       transition: all 1.5s ease;
     }
+
+    .announcement-content {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
     .announcement-icon {
       width: 40px;
       height: 40px;
@@ -455,13 +459,17 @@
     }
 
     @media (max-width: 600px) {
-      .announcement-card {
-        flex-direction: column-reverse;
+      .announcement-content {
+        flex-direction: column;
         align-items: center;
         text-align: center;
       }
       .announcement-icon {
-        margin: 10px 0 0 0;
+        margin: 0 0 15px 0;
+        order: 1;
+      }
+      .announcement-text-wrapper {
+        order: 2;
       }
     }
 
@@ -729,14 +737,16 @@
     </div>
     <!-- ՀԱՅՏԱՐԱՐՈՒԹՅԱՆ ԲԼՈԿԸ՝ ՏԵՂԱՓՈԽՎԱԾ ՎԵՐՋԻՆ -->
     <div class="announcement-card">
-      <div>
-        <h2 class="announcement-title">Հիշեցում</h2>
-        <p class="announcement-text">
-          Խնդրում ենք ձեզ հետ վերցնել հարմարավետ կոշիկներ,<br>
-          որպեսզի լիարժեք վայելեք օրը։
-        </p>
+      <div class="announcement-content">
+        <div class="announcement-text-wrapper">
+          <h2 class="announcement-title">Հիշեցում</h2>
+          <p class="announcement-text">
+            Խնդրում ենք ձեզ հետ վերցնել հարմարավետ կոշիկներ,<br>
+            որպեսզի լիարժեք վայելեք օրը։
+          </p>
+        </div>
+        <div class="announcement-icon"></div>
       </div>
-      <div class="announcement-icon"></div>
     </div>
   </div>
 
