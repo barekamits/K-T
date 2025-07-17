@@ -423,6 +423,10 @@
     }
 
     .announcement-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
       margin-top: var(--section-spacing);
       text-align: center;
       max-width: 600px;
@@ -441,51 +445,34 @@
       transition: all 1.5s ease;
     }
 
-    .announcement-content {
+    .announcement-header {
       display: flex;
-      align-items: flex-start;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .announcement-icon {
-      width: 40px;
-      height: 40px;
-      background-image: url('smile.png');
-      background-size: cover;
-      background-position: center;
-      flex-shrink: 0;
-      margin-top: 5px;
-    }
-
-    @media (max-width: 600px) {
-      .announcement-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-      .announcement-icon {
-        margin: 0 0 15px 0;
-        order: 1;
-      }
-      .announcement-text-wrapper {
-        order: 2;
-      }
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
     }
 
     .announcement-title {
       font-size: 28px;
-      margin-bottom: 15px;
       color: #444;
       font-family: 'Boloragir-Italic';
+      margin: 0;
+    }
+
+    .announcement-icon {
+      width: 36px;
+      height: 36px;
+      background-image: url('smile.png');
+      background-size: cover;
+      background-position: center;
     }
 
     .announcement-text {
       font-size: 20px;
       color: #333;
       font-family: 'Boloragir-Italic';
+      margin: 0;
     }
-
     .couple-photo {
       margin-top: var(--section-spacing);
       margin-bottom: 40px;
